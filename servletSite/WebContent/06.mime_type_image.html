@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>서버에서 전송한이미지보여주기</h1>
+<hr/>
+<!--  이미지 전송해주는 서블릿 호출  -->
+<img height="300" src="http://192.168.12.12/servletSite/SendImgServlet"/>
+
+<!--  img 태그로 이미지 로딩 -->
+<img src="http://192.168.12.12/servletSite/img/img.JPG"/>
+
+
+<audio controls>
+  <source src="http://192.168.12.12/servletSite/SendAudioServlet">
+  <source src="http://192.168.12.12/servletSite/SendAudioServlet" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+
+</body>
+</html>

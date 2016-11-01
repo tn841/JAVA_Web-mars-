@@ -1,0 +1,108 @@
+<!Doctype html>
+<html>
+<head>
+<title>회원 가입</title>
+<script>
+	function loading_focus(){
+		console.log(document.join.id);
+	}
+	
+	function join_form_submit(){
+		if(document.join.id.value == ""){
+			alert("아이디를 입력하세요.");
+			document.join.id.focus();
+			return false;
+		}
+		if(document.join.pass.value==''){
+			alert('패쓰워드를 입력하세요!!');
+			document.join.pass.focus();
+			return false;
+			
+		}
+		if(document.join.repass.value==''){
+			alert('패쓰워드확인를 입력하세요!!');
+			document.join.repass.focus();
+			return false;
+			
+		}
+		/*
+		패쓰워드와 패쓰워드확인 일치여부
+		*/
+		if(document.join.pass.value!=document.join.repass.value){
+			alert("패쓰워드와 패쓰워드확인은 일치하여야합니다.");
+			document.join.pass.select();
+			return false;
+		}
+		/*
+		아이디는 3~7글자사이여야합니다
+		아이디는 영문대소문자숫자이외는 사용불가능합니다.
+		아이디는 숫자로 시작할수없습니다.
+		*/
+		if()
+		return true;
+	}
+</script>
+
+</head>
+<body onload="loading_focus()">
+	<h3 align="center">◆◆◆ 회원가입 ◆◆◆</h3>
+	<form name="join" method="post" action="join.do" onsubmit="return join_form_submit()">
+		<table bgcolor="black" cellspacing="1" cellpadding="5" align="center">
+			<tr id="first-tr">
+				<th bgcolor="44ff44"><font size="2">아이디</font></th>
+				<td bgcolor="white" width="300"><input type="text" size="10"
+					name="id" class="TXTFLD"></td>
+			</tr>
+			<tr>
+				<th bgcolor="44ff44"><font size="2">비밀번호</font></th>
+				<td bgcolor="white" width="300"><input type="password"
+					size="10" name="pass" class="TXTFLD1"></td>
+			</tr>
+			<tr>
+				<th bgcolor="44ff44"><font size="2">비밀번호확인</font></th>
+				<td bgcolor="white" width="300"><input type="password"
+					size="10" name="repass" class="TXTFLD"></td>
+			</tr>
+			<tr>
+				<th bgcolor="44ff44"><font size="2">이름</font></th>
+				<td bgcolor="white" width="300"><input type="text" size="10"
+					name="name" class="TXTFLD"></td>
+			</tr>
+			<tr>
+				<th bgcolor="44ff44"><font size="2">주소</font></th>
+				<td bgcolor="white" width="300"><input type="text" size="30"
+					name="addr" class="TXTFLD"></td>
+			</tr>
+			<tr>
+				<th bgcolor="44ff44"><font size="2">성별</font></th>
+				<td bgcolor="white" width="300"><input type="radio" name="sex"
+					value="남자" checked><font size="2">남자</font> <input
+					type="radio" name="sex" value="여자"><font size="2">여자</font>
+				</td>
+			</tr>
+			<tr>
+				<th bgcolor="44ff44"><font size="2">직업</font></th>
+				<td bgcolor="white" width="300"><select name="job" size="1">
+						<option value="학생"><font size="2">학생</font>
+						<option value="주부"><font size="2">주부</font>
+						<option value="회사원"><font size="2">회사원</font>
+						<option value="기타"><font size="2">기타</font>
+				</select></td>
+			</tr>
+			<tr>
+				<th bgcolor="44ff44"><font size="2">취미</font></th>
+				<td bgcolor="white" width="300"><input type="checkbox"
+					name="hobby" value="컴퓨터" checked><font size="2">컴퓨터</font>
+					<input type="checkbox" name="hobby" value="낮잠"><font
+					size="2">낮잠</font> <input type="checkbox" name="hobby" value="연애"><font
+					size="2">연애</font> <input type="checkbox" name="hobby" value="운동"><font
+					size="2">운동</font> <input type="checkbox" name="hobby" value="기타"><font
+					size="2">기타</font></td>
+			</tr>
+			<th colspan="2" bgcolor="ff8888"><input type="submit" value="가입">
+				<input type="reset" value="취소"></th>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

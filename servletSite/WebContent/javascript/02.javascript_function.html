@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	alert("1.head script start");
+	function func1(){
+		alert('>> func1실행');
+		return;
+	}
+	alert("2.head script func1호출");
+    func1();
+	alert("3.head script function들정의시작");
+	
+	function func2( name ){
+		alert(">> func2("+name+")실행");
+		
+		return;
+	}
+	function func3( name,msg ){
+		alert(">> func3("+name+","+msg+")실행");
+		return;
+	}
+	function add(a,b){
+		var result = a+b;
+		return result;
+	}
+	
+	
+	alert("4.head script function들정의끝");
+</script>
+</head>
+<body>
+<h1>javascript function</h1>
+<hr/>
+<script type="text/javascript">
+	alert("----------------function 호출------------")
+	func2('이효리');
+	func3('이효리','뭐하세요!!');
+	var r=add(434,56);
+	alert("add(434,56)호출결과:"+r);
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+1.HelloServlet 외우기
+2.web.xml mapping-->annotation mapping(@)
+3.Servlet 라이프사이클
+4.image tag src속성
+5.a tag href속성
+6.URL 절대경로,상대경로
+7.LifeCycleImageCounterServlet작성

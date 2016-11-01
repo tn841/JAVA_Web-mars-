@@ -1,0 +1,41 @@
+1. MIME 타입
+    response.setContentType("text/html;charset=EUC-KR");
+    response.setContentType("image/jpeg");
+    response.setContentType("text/plain;charset=EUC-KR");
+    response.setContentType("audio/mpeg");
+2. HTTP 요청방식(GET,POST)
+   	
+   	- GET 요청방식:요청라인-->요청헤더
+   		서버에요청시 파라메타 데이타를전송할경우에는 요청라인의URI에 
+   		query string의 형식으로 만들어서 요청
+   		ex>http://192.168.12.31/servletSite/xxx.do?param1=data1&param2=data2 
+   	- POST요청방식:요청라인-->요청헤더-->요청바디
+   	    서버에요청시 파라메타 데이타를전송할경우에는
+   	    요청의 바디전송시 전송한다.  
+    - HTML form tag method속성을 이용한 GET,POST방식요청
+      	<form action="xxx.do" method="get">
+      		<input type="..." name="...">
+      	</form>
+    - HTML form tag안에 기술되는 element tag 
+        <input type="text">  	
+        <input type="password">  	
+        <input type="radio">  	
+        <input type="checkbox">  	
+        <input type="select">
+        <input type="submit">  	
+        <input type="reset">  	
+        
+    - GET[,POST] 요청방식을 처리하기위해서는 서블릿작성시
+      	doGet[,doPost]메쏘를 재정의 하여야한다.
+      
+    - 서블릿에서 클라이언트가 전송한 파라메타를 읽는메쏘드
+    	String paramValue=request.getParameter("파라메타이름");
+    	String[] paramValueArray=request.getParameterValues("파라메타이름");
+    - JoinServlet작성
+        A. 파라메타받기
+        B. DBInsert
+        C. 결과출력	
+    
+         
+      
+       
