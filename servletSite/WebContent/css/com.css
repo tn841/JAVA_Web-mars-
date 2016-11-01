@@ -1,0 +1,9 @@
+@CHARSET "EUC-KR";
+
+body {
+	background-color: gray;
+}
+
+form {
+	border: 1px solid blue;
+}

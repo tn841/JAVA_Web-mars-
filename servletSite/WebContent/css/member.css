@@ -1,0 +1,13 @@
+@CHARSET "EUC-KR";
+
+.TXTFLD {
+	border-style: dotted;
+	border-color: forestgreen;
+	border-width: 3px;
+}
+
+.TXTFLD1 {
+	border-style: dotted;
+	border-color: pink;
+	border-width: 3px;
+}
