@@ -2,6 +2,7 @@ package com.itwill.cookie;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +36,7 @@ public class CookieCreateServlet extends HttpServlet {
 		/*
 		 * 1. cookie °´Ã¼ »ý¼º
 		 */
-		Cookie keywordCookie = new Cookie("keyword", search_keyword);
+		Cookie keywordCookie = new Cookie("keyword", URLEncoder.encode(search_keyword, "UTF-8"));
 		
 		
 		/*
