@@ -41,6 +41,7 @@ public class CookieReadServlet extends HttpServlet {
 			String cookieName = cookie.getName();
 			if(cookieName.equals("keyword")){
 				cookie_value = cookie.getValue();
+				break;
 			}
 		}
 		out.println("<h1> 클라이언트로 부터 전송된 쿠키값 읽기</h1>");

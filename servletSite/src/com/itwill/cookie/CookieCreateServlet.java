@@ -21,9 +21,10 @@ public class CookieCreateServlet extends HttpServlet {
 		response.setContentType("text/html;charset=EUC-KR");
 		
 		PrintWriter out = response.getWriter();
+		request.setCharacterEncoding("EUC-KR");
 		
 		String search_keyword = request.getParameter("search_keyword");
-		
+		System.out.println(search_keyword);
 		if(search_keyword == null || search_keyword.equals("")){
 			//response.sendRedirect("07.cookie.html");
 			out.println("<script>");
@@ -36,7 +37,8 @@ public class CookieCreateServlet extends HttpServlet {
 		/*
 		 * 1. cookie °´Ã¼ »ý¼º
 		 */
-		Cookie keywordCookie = new Cookie("keyword", URLEncoder.encode(search_keyword, "UTF-8"));
+		Cookie keywordCookie = new Cookie("keyword", 
+				URLEncoder.encode(search_keyword, "UTF-8"));
 		
 		
 		/*
