@@ -2,6 +2,7 @@ package com.itwill.cookie;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,7 +44,7 @@ public class CookieReadServlet extends HttpServlet {
 			}
 		}
 		out.println("<h1> 클라이언트로 부터 전송된 쿠키값 읽기</h1>");
-		out.println("<p>"+cookie_value+"</p>");
+		out.println("<p>"+URLDecoder.decode(cookie_value, "UTF-8")+"</p>");
 		
 		/*
 		 * 3. Cookie 값 사용
