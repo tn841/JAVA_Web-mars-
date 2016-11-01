@@ -27,7 +27,10 @@ public class AddressDetailServlet extends HttpServlet {
 		
 		//1. 파라미터 받기
 		String no = request.getParameter("no");
-		
+		if(no == null || no.equals("")){
+			response.sendRedirect("address_list.do");
+			return;
+		}
 		
 		//2. DB 작업
 		try {
