@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function show_alert() {
+		/* 
+		 message를 표시하는 다이알로그
+		*/
+		window.alert('삭제되었습니다.');
+		
+	}
+	function show_confirm() {
+		var result = window.confirm('종료할까요?');
+		if(result){
+			alert('종료');
+		}else{
+			alert('종료안함');
+		}
+	}
+	function show_prompt() {
+		var inputValue = window.prompt('나이를 입력하세요', 30);
+		
+		if(inputValue >= 30){
+			alert('아저씨!!');
+		}else if(inputValue <= 30 && inputValue > 0) {
+			alert('안아저씨!!');
+		}else if(inputValue==''){
+			alert('입력바람~~~~~')
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<h1>javascript dialog</h1>
+	<hr />
+	<br />
+	<input type="button" value="alert" onclick="show_alert();">
+	<input type="button" value="confirm" onclick="show_confirm();">
+	<input type="button" value="prompt" onclick="show_prompt()">
+
+</body>
+</html>
