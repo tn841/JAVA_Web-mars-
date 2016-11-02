@@ -1,0 +1,4 @@
+1. <script></script> 사이에기술
+2. 태그의 property중에 onXXX로시작하는 이벤트property안에 자바스크립트코드 기술
+3. form의 action 속성에 기술 (방식:action="javascript:코드")
+4. a 태그의 href속성에 기술 (방식: href="javascript:코드")

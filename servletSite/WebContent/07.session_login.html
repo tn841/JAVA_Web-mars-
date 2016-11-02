@@ -1,18 +1,15 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>회원 인증</title>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 
 <link rel="stylesheet" type="text/css" href="./css/com.css">
-<script type="text/javascript" src="./js/com.js">
-	//이위치에 code를 기술하면 안됩니다..
-	function test() {
-
-	}
-</script>
+<script type="text/javascript" src="./js/com.js"></script>
 <script type="text/javascript">
 	function loading(f) {
 		f.id.focus();
+		console.log("폼 로딩 완료!");
 	}
 	function form_check(f) {
 		if (is_null(f.id.value)) {
@@ -26,8 +23,9 @@
 			return;
 		}
 		f.method = 'POST';
-		f.action = 'SessionLogin';
+		f.action = 'session_login.do';	//요청이 이루어질 URL
 		f.submit();
+		console.log("submit 완료!");
 	}
 </script>
 </head>
@@ -35,22 +33,25 @@
 <body onload="loading(document.login);">
 	<h3 align="center">◆◆◆ 회원 로그인 ◆◆◆</h3>
 
-	<form name="login" action="javascript:form_check(document.login);">
+	<form name="login" action="session_login.do" method="POST">
 		<table bgcolor="black" cellspacing="1" cellpadding="5" align="center">
 			<tr>
 				<th bgcolor="44ff44"><font size="2">아이디</font></th>
-				<td bgcolor="white" width="170" align="center"><input
-					type="text" size="20" name="id"></td>
+				<td bgcolor="white" width="170" align="center">
+					<input	type="text" size="20" name="id">
+				</td>
 			</tr>
 			<tr>
 				<th bgcolor="44ff44"><font size="2">비밀번호</font></th>
-				<td bgcolor="white" width="170" align="center"><input
-					type="password" size="20" name="pass"></td>
+				<td bgcolor="white" width="170" align="center">
+					<input	type="password" size="20" name="pass">
+				</td>
 			</tr>
 			<tr>
-				<th colspan="2" bgcolor="ff8888"><input type="checkbox"
-					name="savecookie" checked="checked"><font size="2">ID저장</font>
-					&nbsp;<input type="submit" value="로그인" class="TXTFLD"></th>
+				<th colspan="2" bgcolor="ff8888">
+					<input type="checkbox"	name="savecookie" checked="checked"><font size="2">ID저장</font>&nbsp;
+					<input type="submit" value="로그인">
+				</th>
 			</tr>
 		</table>
 	</form>
