@@ -100,7 +100,41 @@ public class GuestDao {
 	 * READ ONE
 	 */
 	public Guest selectByNo(int no) throws Exception{
-		Guest guest=null;
+		Guest guest= new Guest();
+	
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			con = ConnectionPool.getInstance().getConnection();
+			pstmt = con.prepareStatement(GuestSQL.SELECT_BY_NO);
+			
+			pstmt.setInt(1, no);
+			
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+		
+			guest.setGuest_no(rs.getInt("guest_no"));
+			guest.setGuest_name(rs.getString("guest_name"));
+			guest.setGuest_date(rs.getString("guest_date"));
+			guest.setGuest_email(rs.getString("guest_email"));
+			guest.setGuest_homepage(rs.getString("guest_homepage"));
+			guest.setGuest_title(rs.getString("guest_title"));
+			guest.setGuest_content(rs.getString("guest_content"));			
+			
+		}finally{
+			if(rs!=null){
+				rs.close();
+			}
+			if(pstmt!=null){
+				pstmt.close();
+			}
+			if(con!=null){
+				ConnectionPool.getInstance().releaseConnection(con);
+			}
+		}
 		
 		return guest;
 	}

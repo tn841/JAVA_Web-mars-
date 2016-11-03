@@ -1,6 +1,23 @@
+<%@page import="com.itwill.guest.Guest"%>
+<%@page import="com.itwill.guest.GuestDao"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	
+<%!
+	Guest guest = null;
+	GuestDao guestDao = null;
+	int no = 0;
+%>
 
+<%
+	guestDao = new GuestDao();
+
+	no = Integer.parseInt(request.getParameter("guest_no"));
+	//System.out.println("Guest NO : "+no);
+	
+	try{
+		guest = guestDao.selectByNo(no);	
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,8 +62,7 @@
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리
-											- 방명록 상세보기</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리	- 방명록 상세보기</b></td>
 								</tr>
 							</table> <!-- view Form  -->
 							<form name="f" method="post">
@@ -56,46 +72,53 @@
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">번호</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px">25</td>
+											style="padding-left: 10px"><%=no %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px">수정</td>
+											style="padding-left: 10px"><%=guest.getGuest_name() %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">날짜</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px">2015-03-18</td>
+											style="padding-left: 10px"><%=guest.getGuest_date() %></td>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">홈페이지</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px">xzcxz</td>
+											style="padding-left: 10px"><%=guest.getGuest_homepage() %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px">수정</td>
+											style="padding-left: 10px"><%=guest.getGuest_title() %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="110">내용</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px">수정ㄴㅁㅇhjkjhhj</td>
+											style="padding-left: 10px"><%=guest.getGuest_content() %></td>
 									</tr>
 								</table>
 							</form> <br />
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td align=center><input type="button" value="수정"
-										onClick="guestModify();"> &nbsp; <input type="button"
-										value="삭제" onClick="guestRemove();"> &nbsp; <input
-										type="button" value="목록" onClick="guestList()"></td>
+									<td align=center>
+										<input type="button" value="수정" onClick="guestModify();"> &nbsp; 
+										<input type="button" value="삭제" onClick="guestRemove();"> &nbsp; 
+										<input type="button" value="목록" onClick="guestList()">
+									</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 				</table>
 			</div>
+			
+			<%
+				}catch(Exception e){
+					e.printStackTrace();
+				} 
+			%>
 
 
 		</div>
