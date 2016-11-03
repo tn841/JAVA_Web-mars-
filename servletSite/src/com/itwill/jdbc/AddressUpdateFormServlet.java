@@ -42,7 +42,7 @@ public class AddressUpdateFormServlet extends HttpServlet {
 			/**********************************************************/
 			out.println("<h1> "+rs.getString("name")+"님의 정보 수정 </h1><hr>");
 			out.println("<form action='address_update.do' method='post'>");
-			out.println("번호 : <input type='text' name='no'  value='"+rs.getInt("no")+"' readonly><br>");
+			out.println("<input type='hidden' name='no'  value='"+rs.getInt("no")+"' ><br>");
 			out.println("아이디 : <input type='text' name='id' value='"+rs.getString("id")+"'><br>");
 			out.println("이름 : <input type='text' name='name' value='"+rs.getString("name")+"'><br>");
 			out.println("전화번호 : <input type='text' name='phone' value='"+rs.getString("phone")+"'><br>");
