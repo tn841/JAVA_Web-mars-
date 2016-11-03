@@ -1,0 +1,22 @@
+<%@ page 
+	language="java" 
+	contentType="text/xml;charset=EUC-KR"
+    pageEncoding="EUC-KR"
+%>
+<studnets>
+	<student>
+		<no>1</no>
+		<name>김경호</name>
+		<address>경기도</address>
+	</student>		
+	<student>
+		<no>2</no>
+		<name>김수민</name>
+		<address>서울시</address>
+	</student>		
+	<student>
+		<no>3</no>
+		<name>이티윌</name>
+		<address>서울시</address>
+	</student>		
+</studnets>
