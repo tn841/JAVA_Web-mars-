@@ -8,9 +8,12 @@
 		response.sendRedirect("6-1.member_menu.jsp");
 		return;
 	}	
+	
 	String forwardPath="";
 	if(cmd.equals("member_list")){
+		
 		//MemberDao객체를 사용해서 ArrayList객체를 얻는다.
+		
 		ArrayList<String> memberList=new ArrayList<String>();
 		memberList.add("이효리");
 		memberList.add("신명숙");
@@ -18,7 +21,9 @@
 		memberList.add("김은희");
 		
 		request.setAttribute("memberList", memberList);
+		
 		forwardPath="6-1.member_list.jsp";
+		
 		
 	}else if(cmd.equals("member_login")){
 		
@@ -26,14 +31,24 @@
 		
 	}else if(cmd.equals("member_detail")){
 		//MemberDao객체를 사용해서 MemberDto 객체를 얻는다.
-		forwardPath="6-1.member_detail.jsp";
 		request.setAttribute("member", "김은희");
+		forwardPath="6-1.member_detail.jsp";
 	}else{
-		forwardPath="error.jsp";
+		forwardPath="../error/error.jsp";
 	}
 %>
+<%--
+	모든 action tag의 property에는 <%=%>이기술될수있다
+
+ --%>
+
 <jsp:forward page="<%=forwardPath%>"/>
 
+<%-- 
+<jsp:forward page="6-1.member_list.jsp"/>
+<jsp:forward page="6-1.member_detail.jsp"/>
+<jsp:forward page="6-1.member_login.jsp"/>
+--%>
 
 
 
