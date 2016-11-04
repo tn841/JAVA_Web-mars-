@@ -137,6 +137,17 @@
 					maxActive="500"
 					maxIdle="100"					
 					/> 
+		<Resource 	name="jdbc/OracleDB" 
+					auth="Container" 
+					type="javax.sql.DataSource" 
+					username="user21" 
+					password="user21" 
+					driverClassName="oracle.jdbc.driver.OracleDriver" 
+					factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+					url="jdbc:oracle:thin:@210.16.214.203:1521:xe" 
+					maxActive="500"
+					maxIdle="100"					
+					/> 
       </Context>
       <Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/>
       </Host>
