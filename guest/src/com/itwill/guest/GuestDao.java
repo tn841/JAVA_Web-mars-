@@ -4,6 +4,7 @@ package com.itwill.guest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -141,8 +142,40 @@ public class GuestDao {
 	/*
 	 * DELETE
 	 */
-	public boolean deleteGuest(int no){
+	public boolean deleteGuest(int no) throws Exception{
 		boolean deleteOK=false;
+		
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			con = ConnectionPool.getInstance().getConnection();
+			pstmt = con.prepareStatement(GuestSQL.DELETE);
+			/*
+			 *	"delete from guest where guest_no = ?" 
+			 */
+			
+			pstmt.setInt(1, no);
+	
+			
+			int resultRow = pstmt.executeUpdate();
+			
+			System.out.println(no+"의 삭제 확인 : "+resultRow);
+			
+			if(resultRow == 1){
+				deleteOK = true;
+			}
+			
+		}finally{
+			if(pstmt != null){
+				pstmt.close();
+			}
+			if(con != null){
+				ConnectionPool.getInstance().releaseConnection(con);
+			}
+			
+		}
 		
 		return deleteOK;
 	}

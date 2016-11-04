@@ -66,7 +66,7 @@
 								</tr>
 							</table> <!-- view Form  -->
 							<form name="f" method="post">
-								<input type="hidden" name="guest_no" value="25" />
+								<input type="hidden" name="guest_no" value="<%=no %>" />
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
