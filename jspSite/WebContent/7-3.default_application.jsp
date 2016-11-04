@@ -17,6 +17,6 @@
 <li>context real path : <%=application.getRealPath("")%></li>
 <li>log : <% application.log(">>>>>>>> 현재날짜:"+new Date().toString()); %></li>
 <li>context path(parameter):<%=application.getInitParameter("contextPath")%>
-</ol>
+</ol>.............................................................................................'
 </body>
 </html>

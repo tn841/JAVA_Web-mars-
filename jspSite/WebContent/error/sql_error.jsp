@@ -33,7 +33,7 @@
 							<td height="10"></td>
 						</tr>
 						<tr>
-							<td>특정 jsp 에러 발생</td>
+							<td>SQL Error</td>
 						</tr>
 						<tr>
 							<td></td>

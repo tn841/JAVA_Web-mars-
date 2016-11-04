@@ -10,6 +10,9 @@ pageEncoding="EUC-KR"
  %>
  
 <%
+
+	int result = 4/0;
+
 	//1. 오라클 DB 로딩
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	try{

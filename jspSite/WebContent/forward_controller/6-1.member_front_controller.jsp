@@ -31,7 +31,7 @@
 		
 	}else if(cmd.equals("member_detail")){
 		//MemberDao°´Ã¼¸¦ »ç¿ëÇØ¼­ MemberDto °´Ã¼¸¦ ¾ò´Â´Ù.
-		request.setAttribute("member", "±èÀºÈñ");
+		request.setAttribute("member", "±èÀºÈñasdfasd");
 		forwardPath="6-1.member_detail.jsp";
 	}else{
 		forwardPath="../error/error.jsp";
