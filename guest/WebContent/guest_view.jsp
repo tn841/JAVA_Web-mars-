@@ -103,7 +103,7 @@
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
 									<td align=center>
-										<input type="button" value="수정" onClick="guestModify();"> &nbsp; 
+										<input type="button" value="수정" onClick="guestModify(<%=no%>);"> &nbsp; 
 										<input type="button" value="삭제" onClick="guestRemove();"> &nbsp; 
 										<input type="button" value="목록" onClick="guestList()">
 									</td>

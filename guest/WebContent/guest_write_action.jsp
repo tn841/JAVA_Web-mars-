@@ -29,11 +29,12 @@
 	
 	if(!guestDao.insertGuest(guest)){
 		//insert실패
-		response.sendRedirect("/guest/guest_write.jsp");
+		response.sendRedirect("/guest_model1/guest_write.jsp");
+		return;
 	}
 	
 	//insert성공
-	response.sendRedirect("/guest/guest_list.jsp");
+	response.sendRedirect("/guest_model1/guest_list.jsp");
 	
 	
 		

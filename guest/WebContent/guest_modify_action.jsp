@@ -22,20 +22,21 @@
 	String guest_homepage = request.getParameter("guest_homepage");
 	String guest_title = request.getParameter("guest_title");
 	String guest_content = request.getParameter("guest_content");
-	//System.out.println(guest_name+" "+guest_email+" "+guest_homepage+" "+guest_title+" "+guest_content);
+	System.out.println(guest_name+" "+guest_email+" "+guest_homepage+" "+guest_title+" "+guest_content);
 	
 	GuestDao guestDao = new GuestDao();
 	
-	Guest guest = new Guest(guest_name, guest_email, guest_homepage, guest_title, guest_content);
+	Guest guest = new Guest(Integer.parseInt(guest_no), guest_name, guest_email, guest_homepage, guest_title, guest_content);
 	
+
 	if(!guestDao.updateGuest(guest)){
 		//update실패
-		response.sendRedirect("/guest/guest_view?guest_no="+guest_no+".jsp");
-	}
+		response.sendRedirect("/guest_model1/guest_view.jsp?guest_no="+guest_no);
+		return ;
+	} 
 	
 	//update성공
-	response.sendRedirect("/guest/guest_list.jsp");
-	
+	response.sendRedirect("/guest_model1/guest_view.jsp?guest_no="+guest_no);
 	
 		
 %>

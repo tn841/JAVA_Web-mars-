@@ -149,8 +149,48 @@ public class GuestDao {
 	/*
 	 * UPDATE
 	 */
-	public boolean updateGuest(Guest updateGuest){
+	public boolean updateGuest(Guest guest) throws Exception{
 		boolean updateOK=false;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			con = ConnectionPool.getInstance().getConnection();
+			pstmt = con.prepareStatement(GuestSQL.UPDATE);
+			/*"update guest set GUEST_NAME=?, 
+			 * 					GUEST_email=?,
+			 * 					GUEST_homepage=?,
+			 * 					GUEST_title=?,
+			 * 					GUEST_content=? 
+			 * where guest_no = ?";*/
+			
+			pstmt.setString(1, guest.getGuest_name());
+			pstmt.setString(2, guest.getGuest_email());
+			pstmt.setString(3, guest.getGuest_homepage());
+			pstmt.setString(4, guest.getGuest_title());
+			pstmt.setString(5, guest.getGuest_content());
+			pstmt.setInt(6, guest.getGuest_no());
+			
+		
+			
+			int resultRow = pstmt.executeUpdate();
+			
+			System.out.println(guest.getGuest_no()+"의 업데이트 확인 : "+resultRow);
+			
+			if(resultRow == 1){
+				updateOK = true;
+			}
+			
+		}finally{
+			if(pstmt != null){
+				pstmt.close();
+			}
+			if(con != null){
+				ConnectionPool.getInstance().releaseConnection(con);
+			}
+			
+		}
 		
 		return updateOK;
 	}

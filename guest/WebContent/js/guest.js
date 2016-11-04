@@ -16,8 +16,9 @@ function guestList() {
 	f.submit();
 }
 
-function guestModify() {
-	f.action = "guest_modify.jsp";
+
+function guestModify(no) {
+	f.action = "guest_modify.jsp?guest_no="+no;
 	f.submit();
 }
 function guestRemove() {
