@@ -126,7 +126,7 @@
 
       <Context docBase="servletSite" path="/servletSite" reloadable="true" source="org.eclipse.jst.jee.server:servletSite"/>
       <Context docBase="jspSite" path="/jspSite" reloadable="true" source="org.eclipse.jst.jee.server:jspSite">
-      	<Resource 	name="jdbc/OracleDB" 
+      	<Resource 	name="jdbc/OracleDB2" 
 					auth="Container" 
 					type="javax.sql.DataSource" 
 					username="user21" 
