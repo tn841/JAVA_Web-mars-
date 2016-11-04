@@ -124,7 +124,22 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="servletSite" path="/servletSite" reloadable="true" source="org.eclipse.jst.jee.server:servletSite"/><Context docBase="jspSite" path="/jspSite" reloadable="true" source="org.eclipse.jst.jee.server:jspSite"/><Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/></Host>
+      <Context docBase="servletSite" path="/servletSite" reloadable="true" source="org.eclipse.jst.jee.server:servletSite"/>
+      <Context docBase="jspSite" path="/jspSite" reloadable="true" source="org.eclipse.jst.jee.server:jspSite">
+      	<Resource 	name="jdbc/OracleDB" 
+					auth="Container" 
+					type="javax.sql.DataSource" 
+					username="user21" 
+					password="user21" 
+					driverClassName="oracle.jdbc.driver.OracleDriver" 
+					factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+					url="jdbc:oracle:thin:@210.16.214.203:1521:xe" 
+					maxActive="500"
+					maxIdle="100"					
+					/> 
+      </Context>
+      <Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/>
+      </Host>
     </Engine>
   </Service>
 </Server>
