@@ -24,17 +24,23 @@
 	
 	if(!guestDao.deleteGuest(guest_no)){
 		//insert실패
-		%>
-			<script>
-			alert('<%=guest_no%>번 삭제 실패');
-			return;
-			</script>
-		<%
+		
+			out.print("<script>");
+			out.print("alert('"+guest_no+"번 삭제 실패');");
+			out.print("return;");
+			out.print("</script>");
+	
 		return;
 	}
 	
 	//insert성공
-	response.sendRedirect("/guest_model1/guest_list.jsp");
+	out.print("<script>");
+	out.print("alert('삭제 되었습니다.');");
+	out.print("location.href='guest_list.jsp';");
+	out.print("</script>");
+
+			
+	//response.sendRedirect("/guest_model1/guest_list.jsp");
 	
 	
 		
