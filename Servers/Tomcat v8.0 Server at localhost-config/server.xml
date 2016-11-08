@@ -126,31 +126,30 @@
 
       <Context docBase="servletSite" path="/servletSite" reloadable="true" source="org.eclipse.jst.jee.server:servletSite"/>
       <Context docBase="jspSite" path="/jspSite" reloadable="true" source="org.eclipse.jst.jee.server:jspSite">
-      	<Resource 	name="jdbc/OracleDB2" 
-					auth="Container" 
-					type="javax.sql.DataSource" 
-					username="user21" 
-					password="user21" 
-					driverClassName="oracle.jdbc.driver.OracleDriver" 
-					factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-					url="jdbc:oracle:thin:@210.16.214.203:1521:xe" 
-					maxActive="500"
-					maxIdle="100"					
-					/> 
-		<Resource 	name="jdbc/OracleDB" 
-					auth="Container" 
-					type="javax.sql.DataSource" 
-					username="user21" 
-					password="user21" 
-					driverClassName="oracle.jdbc.driver.OracleDriver" 
-					factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-					url="jdbc:oracle:thin:@210.16.214.203:1521:xe" 
-					maxActive="500"
-					maxIdle="100"					
-					/> 
+      	<Resource auth="Container" 
+			      	driverClassName="oracle.jdbc.driver.OracleDriver" 
+			      	factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" 
+			      	maxActive="500" 
+			      	maxIdle="100" 
+			      	name="jdbc/OracleDB2" 
+			      	password="user21" 
+			      	type="javax.sql.DataSource" 
+			      	url="jdbc:oracle:thin:@210.16.214.203:1521:xe" 
+			      	username="user21"/> 
+			      	
+		<Resource auth="Container" 
+				driverClassName="oracle.jdbc.driver.OracleDriver" 
+				factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" 
+				maxActive="500" 
+				maxIdle="100" 
+				name="jdbc/OracleDB" 
+				password="user21" 
+				type="javax.sql.DataSource" 
+				url="jdbc:oracle:thin:@210.16.214.203:1521:xe" 
+				username="user21"/> 
       </Context>
-      <Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/>
-      </Host>
+      
+      <Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/><Context docBase="user_model1" path="/user_model1" reloadable="true" source="org.eclipse.jst.jee.server:user_model1"/></Host>
     </Engine>
   </Service>
 </Server>
