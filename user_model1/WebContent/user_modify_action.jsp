@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
+	request.setCharacterEncoding("euc-kr");
 	String id = (String)request.getParameter("userId");
 	String password = (String)request.getParameter("password");
 	String name = (String)request.getParameter("name");

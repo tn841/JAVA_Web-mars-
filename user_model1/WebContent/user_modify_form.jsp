@@ -13,6 +13,7 @@
 	if(!userId.equals(sUserId)){
 		inputButton = "hidden";
 	}
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,12 +24,23 @@
 <link rel=stylesheet href="css/user.css" type="text/css">
 <script type="text/javascript">
 	function userModify() {
+		if(!passwordCheck()){
+			return;
+		}
 		f.action = "user_modify_action.jsp";
 		f.submit();
 	}
 	function userList() {
 		f.action = "user_list.jsp";
 		f.submit();
+	}
+	function passwordCheck(){
+		if(f.password.value != f.password2.value){
+			alert('비밀번호가 다릅니다. '+f.password.value+", "+f.password2.value);
+			f.password.focus();
+			return false;
+		}
+		return true;
 	}
 </script>
 </head>
