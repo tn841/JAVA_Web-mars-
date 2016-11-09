@@ -17,7 +17,7 @@
 		//삭제 성공
 		//response.sendRedirect("user_list.jsp");
 		request.setAttribute("MSG", "삭제 되었습니다.");
-		RequestDispatcher rs = request.getRequestDispatcher("user_list.jsp");
+		RequestDispatcher rs = request.getRequestDispatcher("user_logout_action.jsp");
 		rs.forward(request, response);
 		return;
 		
