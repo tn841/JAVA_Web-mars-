@@ -11,6 +11,10 @@
 	}
 	DogProductService dogManager = new DogProductService();
 	DogProduct dog = dogManager.getDog(id);
+	if(dog == null){
+		out.print("<script>alert('그런 개는 없습니다.'); location.href='shop_product_list.jsp';</script>");
+		return;
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -86,20 +90,19 @@
 								<tr width=100%>
 									<td width=30% height=200 align=center class=t1>
 										<form method="post" action="shop_add_cart.jsp">
-											수량 : <input type=text name=qty value=1 size=4 class=TXTFLD>
+											수량 : <input type=number name=qty value=1 class=TXTFLD min="0" max="10" style="width:50px;">
 											마리 <br /> <br /> <input type=submit value=장바구니에담기
 												class=TXTFLD /> <input type="hidden" name=id
 												value=<%=dog.getId()%>>
 										</form>
 									</td>
-									<td width=40% height=200 align=center><img border=0
-										src=image/<%=dog.getImage()%> width=120 height=200></td>
+									<td width=40% height=200 align=center>
+										<img border=0 src=image/<%=dog.getImage()%> width=120 height=200></td>
 									<td width=30% height=200 class=t1>
 										<ol type="disc">
-											<li><b>견종 : bigle&nbsp;&nbsp;&nbsp;</b></li>
-											<li><font color=#FF0000>가격 :
-													550000&nbsp;&nbsp;&nbsp;</font></li>
-											<li><font color=#0000FF>기타 상세 정보..&nbsp;&nbsp</font></li>
+											<li><b>견종 : <%=dog.getName() %>&nbsp;&nbsp;&nbsp;</b></li>
+											<li><font color=#FF0000>가격 :	<%=dog.getPrice() %>&nbsp;&nbsp;&nbsp;</font></li>
+											<li><font color=#0000FF><%=dog.getDes() %>&nbsp;&nbsp</font></li>
 										</ol>
 									</td>
 								</tr>

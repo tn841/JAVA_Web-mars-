@@ -22,12 +22,13 @@
 
 	DogProductService dogManager = new DogProductService();
 	DogProduct dogProduct = dogManager.getDog(id);
-
+	
 	ShoppingCartService cart = (ShoppingCartService) session.getAttribute("cart");
 	if (cart == null) {
 		cart = new ShoppingCartService();
 	}
 	cart.add(id, dogProduct, Integer.parseInt(qty));
 	session.setAttribute("cart", cart);
+	
 	response.sendRedirect("shop_view_cart.jsp");
 %>

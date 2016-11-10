@@ -10,14 +10,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%
+	/*
 	ShoppingCartService cart = (ShoppingCartService) session.getAttribute("cart");
 	if (cart == null) {
 		cart = new ShoppingCartService();
 	}
 	session.setAttribute("cart", cart);
-
+	*/
 	DogProductService dogManager = new DogProductService();
 	List<DogProduct> dogList = dogManager.getDogs();
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -74,11 +76,14 @@
 												DecimalFormat df = new DecimalFormat("#,##0");
 										%>
 
-										<td align="center" width="25%"><a
-											href="shop_product_detail.jsp?id=<%=dog.getId()%>"><img
-												src="image/<%=dog.getImage()%>" border="0"></a><br /> <br />
-											<b>견종:<%=dog.getName()%></b><br> <font color="#FF0000">가격:<%=df.format(dog.getPrice())%>원
-										</font></td>
+										<td align="center" width="25%">
+											<a href="shop_product_detail.jsp?id=<%=dog.getId()%>">
+												<img src="image/<%=dog.getImage()%>" border="0" width=100 >
+												<br /><br />
+												<b>견종:<%=dog.getName()%></b><br> 
+												<font color="#FF0000">가격:<%=df.format(dog.getPrice())%>원</font>
+											</a>
+										</td>
 										<%
 											}
 										%>
