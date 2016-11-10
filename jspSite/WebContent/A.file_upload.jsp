@@ -119,8 +119,7 @@ a.m2:hover {
 
 	<br>
 	<br>
-	<form method="POST" action="A.upload_view.jsp"
-		enctype="multipart/form-data">
+	<form method="POST" action="A.upload_view.jsp"	enctype="multipart/form-data">
 
 		<table border=0 cellpadding=0 cellspacing=0 width=500 align=center>
 			<td valign=top bgcolor=#000000 align=center>
@@ -138,8 +137,8 @@ a.m2:hover {
 
 					<tr bgcolor=#f4f4f4>
 						<td align=center class="t1">파일선택</td>
-						<td align=left>&nbsp;<input type=file name=fileone size=40
-							class="TXTFLD">
+						<td align=left>&nbsp;
+						<input type=file name=fileone size=40 class="TXTFLD">
 						</td>
 					</tr>
 
@@ -160,8 +159,7 @@ a.m2:hover {
 	<br>
 
 
-	<form method="POST" action="A.upload.jsp"
-		enctype="multipart/form-data">
+	<form method="POST" action="A.upload.jsp"	enctype="multipart/form-data">
 
 		<table border=0 cellpadding=0 cellspacing=0 width=500 align=center>
 			<td valign=top bgcolor=#000000 align=center>
