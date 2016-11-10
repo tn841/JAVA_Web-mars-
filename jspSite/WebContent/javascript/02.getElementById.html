@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function form_submit(){
+		
+		//document.loginForm.submit();
+		//var idE = document.loginForm.id
+		
+		var idE=document.getElementById("ide");
+		alert(idE);
+		
+		idE.value="guard";
+		document.getElementById("passe").value="1111";
+		
+		
+		
+		var f = document.getElementById("login_form");
+		alert(f);
+		//f.submit();
+	}
+	function access_element(){
+		var pE = document.getElementById("a");
+		alert("1."+pE);
+		
+		
+		
+		var divE=document.getElementById("b");
+		alert("2."+divE);
+		var h1E=document.getElementById("c");
+		alert("3."+h1E);
+		var h2E=document.getElementById("d");
+		alert("4."+h2E);
+		
+	}
+</script>
+</head>
+<body>
+<h1>document.getElementById('아이디')</h1>
+<hr/>
+<form action="login_action.jsp" name="loginForm" id="login_form">
+	아이디:<input type="text" name="id" id="ide"><br/>
+	패쓰워드:<input type="password" name="pass" id="passe"><br/>
+</form>
+
+<p id="a">난  p tag</p>	
+<div id="b">난  div tag</div>
+<h1 id="c">난  h1</h1>	
+<h2 id="d">난  h2</h2>
+<hr/>
+<input type="button" value="폼submit" onclick="form_submit();">
+<input type="button" value="element객체얻기" onclick="access_element()">
+
+	
+</body>
+</html>
+
+
+
+
+
+
+
