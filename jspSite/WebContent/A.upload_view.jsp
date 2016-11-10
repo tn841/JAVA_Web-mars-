@@ -7,17 +7,15 @@
 <%
 	InputStream in = request.getInputStream();	//클라가 보낸 데이터 요청을 바이트 인풋스트림을 통해 까보자
 	out.println("<xmp>");
-	int count = 0;
+
 	while(true){
-		count++;
+
 		int read = in.read();
 		if(read == -1){
 			break;
 		}
-		out.print(Integer.toUnsignedString(read)+"\t");
-		if(count%10 == 0){
-			out.println();
-		}
+		out.print((char)(read));
+
 	}
 	out.println("</xmp>");	//파싱 방지
 	

@@ -159,7 +159,7 @@ a.m2:hover {
 	<br>
 
 
-	<form method="POST" action="A.upload.jsp"	enctype="multipart/form-data">
+	<form method="POST" action="upload.do"	enctype="multipart/form-data">
 
 		<table border=0 cellpadding=0 cellspacing=0 width=500 align=center>
 			<td valign=top bgcolor=#000000 align=center>

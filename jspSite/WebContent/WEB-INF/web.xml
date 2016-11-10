@@ -2,30 +2,25 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>jspSite</display-name>
   <context-param>
-  	<param-name>contextPath</param-name>
-  	<param-value>/jspSite</param-value>
+    <param-name>contextPath</param-name>
+    <param-value>/jspSite</param-value>
   </context-param>
-  
   <context-param>
-  	<param-name>param2</param-name>
-  	<param-value>value2</param-value>
+    <param-name>param2</param-name>
+    <param-value>value2</param-value>
   </context-param>
-  
   <error-page>
-  	<exception-type>java.lang.RuntimeException</exception-type>
-  	<location>/error/sql_error.jsp</location>
+    <exception-type>java.lang.RuntimeException</exception-type>
+    <location>/error/sql_error.jsp</location>
   </error-page>
-  
   <error-page>
-  	<error-code>404</error-code>
-  	<location>/error/404.jsp</location>
+    <error-code>404</error-code>
+    <location>/error/404.jsp</location>
   </error-page>
-  
-   <error-page>
-  	<error-code>500</error-code>
-  	<location>/error/500.jsp</location>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error/500.jsp</location>
   </error-page>
-  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>

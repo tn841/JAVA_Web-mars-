@@ -1,40 +1,57 @@
-<%@page import="java.util.Enumeration"%>
-<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="javax.servlet.annotation.MultipartConfig"%>
+<%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <h1>Upload Data</h1>
+  
 <%
-	/*
-	MultipartRequest
-
-	public MultipartRequest(javax.servlet.http.HttpServletRequest request,
-	                        java.lang.String saveDirectory,
-	                        int maxPostSize,
-	                        java.lang.String encoding)  throws java.io.IOException
 	
-	Constructs a new MultipartRequest to handle the specified request, saving any uploaded files to the given directory, 
-	and limiting the upload size to the specified length. If the content is too large, an IOException is thrown. 
-	This constructor actually parses the multipart/form-data and throws an IOException if there's any problem reading or 
-	parsing the request.
-	
-	Parameters:
-	request - the servlet request.
-	saveDirectory - the directory in which to save any uploaded files.
-	maxPostSize - the maximum size of the POST content.
-	encoding - the encoding of the response, such as ISO-8859-1
-	Throws:
-	java.io.IOException - if the uploaded content is larger than maxPostSize or there's a problem reading or parsing the request.
-
-	*/
 	String saveDirectory = application.getRealPath("/upload");
-	MultipartRequest multipartRequest = new MultipartRequest(request, saveDirectory, 1024*1024*100, "EUC-KR");
+	
+	/*
+		1. httpServletRequset.getContentType()으로 multipart/form-data인지 판단
+		2. HttpServletRequest.getParts() or getPart(str) 메서드를 이용해 Part를 구한다.
+			- 업로드 데이터에 접근
+		3-1. Part의 Content-Disposition 헤더가 "filename="을 포함하면 파일이다.
+		3-2. "filename="이 없으면 파라미터로 처리 
+	*/
+	
+	String contentType = request.getContentType();
+	String partName = "";
+	String partContentType = "";
+	String fileSize = "";
+	String fileName = "";
+	
+	try{
+	
+	if(contentType != null && contentType.toLowerCase().startsWith("multipart/")){
+		Collection<Part> parts = request.getParts();	//Part의 목록 구하기, form의 name속성을 기준으로 가져오기-> getPart("name")
+		for(Part part : parts){
+			partName = part.getName();
+			partContentType = part.getContentType();
+			if(part.getHeader("Content-Disposition").contains("filename=")){	//파일 part
+				out.println("<hr>");
+				out.println("<li>fileSize : "+part.getSize()+"</li>");
+				out.println("<li>fileName : "+part.getSubmittedFileName()+"</li>");
+				if(part.getSize() > 0){	//데이터가 있으면 업로드를 수행한다.
+					part.write(saveDirectory);
+					part.delete();
+				}
+				out.println("<br>");
+				
+			}
+			else{//일반 파라미터 part
+				out.println("<hr>");
+				out.println("<li>parameter value : "+request.getParameter(part.getName())+"</li>");
+				out.println("<br>");
+			}
+		}
+	}else{
+		out.println("<script>alert('mulipart가 아닙니다.'); location.href='A.file_upload.jsp';</script>");
+	}
+	}catch(Exception e){
+		e.printStackTrace();
+	}
 	
 %>
-<h1>Upload Data</h1>
-<hr/>
-<h3>upload directory:<%=saveDirectory%></h3>
-<br/>
-<br/>
-<br/>
-<li>name:<%=multipartRequest.getParameter("name")%></li>
-<li>fileone:<%=multipartRequest.getFilesystemName("fileone")%></li>
-<li>filetwo:<%=multipartRequest.getFilesystemName("filetwo")%></li>
+
