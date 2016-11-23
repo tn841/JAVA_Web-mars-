@@ -5,73 +5,102 @@ import java.util.ArrayList;
 
 public class Board {
 	
-	private int boardNo;
-	private String title;
-	private String writer;
-	private String content;
-	private Date regDate;
-	private int readCount;
+	private int b_no;
+	private String b_title;
+	private String b_writer;
+	private String b_content;
+	private Date b_date;
+	private int b_click;
 	
 	
 	//글의 논리적인 순서번호를 관리하기 위한 필드 (3개)
-	private int groupNo;
-	private int step;
-	private int depth;
+	private int b_groupno;
 	
+	public Board() {
+		
+	}
+	
+	public Board(int b_no, String b_title, String b_writer, String b_content, Date b_date, int b_click, int b_groupno,
+			int b_step, int b_depth, String b_score) {
+		super();
+		this.b_no = b_no;
+		this.b_title = b_title;
+		this.b_writer = b_writer;
+		this.b_content = b_content;
+		this.b_date = b_date;
+		this.b_click = b_click;
+		this.b_groupno = b_groupno;
+		this.b_step = b_step;
+		this.b_depth = b_depth;
+		this.b_score = b_score;
+	}
+	
+	private int b_step;
+	private int b_depth;
+	//평점 위한 변수
+	private String b_score;
+	
+	
+	public String getB_score() {
+		return b_score;
+	}
+	public void setB_score(String b_score) {
+		this.b_score = b_score;
+	}
 	public int getBoardNo() {
-		return boardNo;
+		return b_no;
 	}
 	public void setBoardNo(int boardNo) {
-		this.boardNo = boardNo;
+		this.b_no = boardNo;
 	}
 	public String getTitle() {
-		return title;
+		return b_title;
 	}
 	public void setTitle(String title) {
-		this.title = title;
+		this.b_title = title;
 	}
 	public String getWriter() {
-		return writer;
+		return b_writer;
 	}
 	public void setWriter(String writer) {
-		this.writer = writer;
+		this.b_writer = writer;
 	}
 	public String getContent() {
-		return content;
+		return b_content;
 	}
 	public void setContent(String content) {
-		this.content = content;
+		this.b_content = content;
 	}
 	public Date getRegDate() {
-		return regDate;
+		return b_date;
 	}
 	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+		this.b_date = regDate;
 	}
 	public int getReadCount() {
-		return readCount;
+		return b_click;
 	}
 	public void setReadCount(int readCount) {
-		this.readCount = readCount;
+		this.b_click = readCount;
 	}
 
 	public int getGroupNo() {
-		return groupNo;
+		return b_groupno;
 	}
 	public void setGroupNo(int groupNo) {
-		this.groupNo = groupNo;
+		this.b_groupno = groupNo;
 	}
 	public int getStep() {
-		return step;
+		return b_step;
 	}
 	public void setStep(int step) {
-		this.step = step;
+		this.b_step = step;
 	}
 	public int getDepth() {
-		return depth;
+		return b_depth;
 	}
 	public void setDepth(int depth) {
-		this.depth = depth;
+		this.b_depth = depth;
 	}
 	
 }

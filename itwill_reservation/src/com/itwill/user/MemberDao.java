@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.itwill.board.RdbmsDao;
@@ -45,7 +47,7 @@ public class MemberDao extends RdbmsDao {
 			pstmt.setString(6, member.getM_birth());
 			pstmt.setString(7, member.getM_address());
 			pstmt.setString(8, member.getM_class());
-			pstmt.setInt(9, member.getM_point());
+			//pstmt.setInt(9, member.getM_point());
 
 			int rows = pstmt.executeUpdate();
 			return rows;
@@ -63,7 +65,7 @@ public class MemberDao extends RdbmsDao {
 	public int update(Member member) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String updateQuery = "update member set m_password = ?, m_name = ?, m_email = ? m_phone = ? m_address = ? m_point = ? where m_id = ?";
+		String updateQuery = "update member set m_password = ?, m_name = ?, m_email = ?, m_phone = ?, m_address = ?,m_birth=?,m_class=?, m_point=? where m_id = ?";
 		try {
 			con = getConnection();
 			pstmt = con.prepareStatement(updateQuery);
@@ -72,8 +74,10 @@ public class MemberDao extends RdbmsDao {
 			pstmt.setString(3, member.getM_email());
 			pstmt.setString(4, member.getM_phone());
 			pstmt.setString(5, member.getM_address());
-			pstmt.setInt(6, member.getM_point());
-			pstmt.setString(7, member.getM_id());
+			pstmt.setString(6, member.getM_birth());
+			pstmt.setString(7, member.getM_class());
+			pstmt.setInt(8, member.getM_point());
+			pstmt.setString(9, member.getM_id());
 			
 			int rows = pstmt.executeUpdate();
 			return rows;
@@ -161,6 +165,37 @@ public class MemberDao extends RdbmsDao {
 		}
 		return member;
 	}
+	
+	/*
+	 * 생년월일, 전화번호로 회원 찾기
+	 */
+	public Member findMemberByBP(String birth, String phone) throws Exception{
+		Member member = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String selectQuery = "select m_no, m_id, m_password, m_name, m_phone, m_email, m_birth, m_address, m_class, m_point from member where m_birth = ? and m_phone = ?";
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(selectQuery);
+			pstmt.setString(1, birth);
+			pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				member = new Member(rs.getInt("m_no"), rs.getString("m_id"), rs.getString("m_password"), rs.getString("m_name"), rs.getString("m_phone"), rs.getString("m_email"), rs.getString("m_birth"), rs.getString("m_address"), rs.getString("m_class"), rs.getInt("m_point"));
+			}
+		}finally{
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				releaseConnection(con);
+		}
+		return member;
+	}
+	
+	
 	
 	/*
 	 * 회원 전체 리스트

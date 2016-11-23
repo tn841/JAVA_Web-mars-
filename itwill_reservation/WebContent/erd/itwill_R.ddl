@@ -17,7 +17,7 @@ CREATE TABLE Member(
 		m_name                        		VARCHAR2(20)		 NOT NULL,
 		m_phone                       		VARCHAR2(20)		 NOT NULL,
 		m_email                       		VARCHAR2(30)		 NULL ,
-		m_birth                       		DATE		 NULL ,
+		m_birth                       		VARCHAR2(20)		 NULL ,
 		m_address                     		VARCHAR2(100)		 NULL ,
 		m_class                       		VARCHAR2(10)		 NOT NULL,
 		m_point                       		NUMBER(20)		 DEFAULT 0		 NULL 
@@ -80,8 +80,7 @@ CREATE TABLE Reserve_info(
 		enroll_time                   		TIMESTAMP		 NULL ,
 		modify_time                   		TIMESTAMP		 NULL ,
 		r_date                        		DATE		 NULL ,
-		r_s_time                      		TIMESTAMP		 NULL ,
-		r_e_time                      		TIMESTAMP		 NULL ,
+		r_time                        		TIMESTAMP		 NULL ,
 		s_no                          		NUMBER(10)		 NULL ,
 		r_m_no                        		NUMBER(10)		 NULL 
 );
@@ -91,8 +90,7 @@ COMMENT ON COLUMN Reserve_info.r_no is '예약 번호';
 COMMENT ON COLUMN Reserve_info.enroll_time is '등록시간';
 COMMENT ON COLUMN Reserve_info.modify_time is '수정시간';
 COMMENT ON COLUMN Reserve_info.r_date is '예약 일자';
-COMMENT ON COLUMN Reserve_info.r_s_time is '예약 시작 시간';
-COMMENT ON COLUMN Reserve_info.r_e_time is '예약 끝 시간';
+COMMENT ON COLUMN Reserve_info.r_time is '예약 시간';
 COMMENT ON COLUMN Reserve_info.s_no is '좌석 번호';
 COMMENT ON COLUMN Reserve_info.r_m_no is '예약한 사람 번호';
 
@@ -138,8 +136,8 @@ COMMENT ON COLUMN iOrder_detail.j_no is '주문번호';
 /**********************************/
 CREATE TABLE board(
 		b_no                          		NUMBER(10)		 NOT NULL,
-		b_type                        		NUMBER(10)		 NULL ,
-		b_score                       		NUMBER(10)		 NULL ,
+		/*b_type                        		NUMBER(10)		 NULL ,*/
+		/*b_score                       		NUMBER(10)		 NULL ,*/
 		b_title                       		VARCHAR2(200)		 NULL ,
 		b_writer                      		VARCHAR2(50)		 NULL ,
 		b_content                     		VARCHAR2(4000)		 NULL ,
@@ -148,13 +146,29 @@ CREATE TABLE board(
 		b_groupno                     		NUMBER(10)		 NULL ,
 		b_depth                       		NUMBER(10)		 NULL ,
 		b_step                        		NUMBER(10)		 NULL ,
-		b_image                       		VARCHAR2(50)		 NULL ,
-		m_no                          		NUMBER(10)		 NULL 
+		/*b_image                       		VARCHAR2(50)		 NULL*/
+		/*m_no                          		NUMBER(10)		 NULL */
 );
+/*
+ * b_no      : 글 번호
+ * b_type    : 게시판 타입(자유,신고,평점,공지)
+ * b_score   : 평점
+ * b_title   : 글 제목
+ * b_writer  : 글 쓴이(멤버의 이름,별명같은것)
+ * b_content : 본문
+ * b_date    : 글 작성시간(작성시점의 시스템시간)
+ * b_click   : 조회수
+ * b_groupno : 최상위글과 그글의 답글들을 하나의 구룹으로 묶기위한컬럼
+ * b_depth   : 답글의 깊이를 가지고있는 컬럼
+ * b_step    : 같은그룹내에서의 순서를 가지고있는 컬럼
+ * b_image   : 이미지
+ * m_no      : 멤버번호(fk)
+ */
+ 
 
 COMMENT ON TABLE board is '게시판';
 COMMENT ON COLUMN board.b_no is '게시글번호';
-COMMENT ON COLUMN board.b_type is '게시판타입';
+/*COMMENT ON COLUMN board.b_type is '게시판타입';*/
 COMMENT ON COLUMN board.b_score is '게시글평점';
 COMMENT ON COLUMN board.b_title is '게시글제목';
 COMMENT ON COLUMN board.b_writer is '게시글쓴이';

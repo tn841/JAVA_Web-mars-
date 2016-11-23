@@ -6,7 +6,13 @@ public class Item {
 	private int i_point;		 // 아이템 요구 포인트
 	private String i_image;		 // 아이템 이미지 경로
 	private String i_desc;		 // 아이템 상세설명
+	private int hits;            // 아이템 카트or구매시 누적
 	
+	
+	public void setHits(int hits) {
+		this.hits = hits;
+	}
+
 	public Item() {
 		
 	}
@@ -20,6 +26,15 @@ public class Item {
 		this.i_desc = i_desc;
 	}
 
+	public Item(int i_type, String i_name, int i_point, String i_image, String i_desc, int hits) {
+		super();
+		this.i_type = i_type;
+		this.i_name = i_name;
+		this.i_point = i_point;
+		this.i_image = i_image;
+		this.i_desc = i_desc;
+		this.hits = hits;
+	}
 
 	//getter setter
 
@@ -62,5 +77,8 @@ public class Item {
 	public void setI_type(int i_type) {
 		this.i_type = i_type;
 	}
-	
+	public int getHits() {
+		return hits;
+	}
+
 }

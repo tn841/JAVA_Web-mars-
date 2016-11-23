@@ -378,8 +378,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>722</x>
-              <y>77</y>
+              <x>730</x>
+              <y>103</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -673,25 +673,14 @@
                 <defaultValue></defaultValue>
               </net.java.amateras.db.visual.model.ColumnModel>
               <net.java.amateras.db.visual.model.ColumnModel>
-                <columnName>r_s_time</columnName>
-                <logicalName>예약 시작 시간</logicalName>
+                <columnName>r_time</columnName>
+                <logicalName>예약 시간</logicalName>
                 <columnType class="net.java.amateras.db.dialect.ColumnType">
                   <name>TIMESTAMP</name>
                   <logicalName>Date</logicalName>
                   <supportSize>true</supportSize>
                   <type>93</type>
                 </columnType>
-                <size></size>
-                <notNull>false</notNull>
-                <primaryKey>false</primaryKey>
-                <description></description>
-                <autoIncrement>false</autoIncrement>
-                <defaultValue></defaultValue>
-              </net.java.amateras.db.visual.model.ColumnModel>
-              <net.java.amateras.db.visual.model.ColumnModel>
-                <columnName>r_e_time</columnName>
-                <logicalName>예약 끝 시간</logicalName>
-                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[5]/columnType"/>
                 <size></size>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
@@ -735,7 +724,7 @@
                 <autoIncrement>false</autoIncrement>
                 <defaultValue></defaultValue>
               </net.java.amateras.db.visual.model.ColumnModel>
-              <net.java.amateras.db.visual.model.ColumnModel reference="../../../source/columns/net.java.amateras.db.visual.model.ColumnModel[8]"/>
+              <net.java.amateras.db.visual.model.ColumnModel reference="../../../source/columns/net.java.amateras.db.visual.model.ColumnModel[7]"/>
             </entry>
           </references>
         </net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -1072,7 +1061,7 @@
   </children>
   <dommains/>
   <dialectName>Oracle</dialectName>
-  <logicalMode>false</logicalMode>
+  <logicalMode>true</logicalMode>
   <jarFile>C:\Java_Study\workplace-mars\board_model1\WebContent\WEB-INF\lib\ojdbc6.jar</jarFile>
   <jdbcDriver>oracle.jdbc.OracleDriver</jdbcDriver>
   <jdbcUrl>jdbc.oracle.thin:@210.16.213.203:1521:XE</jdbcUrl>

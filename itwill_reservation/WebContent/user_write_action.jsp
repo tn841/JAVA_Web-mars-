@@ -1,21 +1,32 @@
+<%@page import="com.sun.xml.internal.bind.v2.runtime.Location"%>
+<%@page import="com.itwill.user.ExistedUserException"%>
 <%@page import="com.sun.xml.internal.ws.api.streaming.XMLStreamWriterFactory.Default"%>
 <%@page import="java.sql.Date"%>
 <%@page import="com.itwill.user.Member"%>
 <%@page import="com.itwill.user.MemberDaoService"%>
 <%@page import="com.itwill.user.MemberDao"%>
-<%@page pageEncoding="MS949" contentType="text/html; charset=MS949" %>
+<%@page pageEncoding="EUC-KR" contentType="text/html; charset=EUC-KR" %>
 <html>
 <head>
+<!-- 
 <meta http-equiv="Content-Type" content="text/html; charset=MS949"/>
+ -->
+
 <title></title>
 </head>
 <body>
-
+<%-- catch 부분 수정할것 --%>
 <% 
-//MemberDaoService 
+if(request.getMethod().equalsIgnoreCase("get")) {
+	response.sendRedirect("user_write_form.jsp");
+	return;
+}
 %>
 
 <% 
+request.setCharacterEncoding("EUC-KR");
+
+String sUserId = (String)session.getAttribute("sUserId");
 
 String id = request.getParameter("m_id");
 String pass = request.getParameter("m_pass");
@@ -31,7 +42,6 @@ String ban = request.getParameter("m_class");
 //int po= Integer.parseInt(point);
 
 //Member member = new Member();
- Member member = new Member(-97, id, pass, name, phone, email, birh, address, ban, -99);
 
 //System.out.print(id);
 //System.out.print(pass);
@@ -46,11 +56,38 @@ member.setM_birth(birh);
 member.setM_address(address);
 member.setM_class(ban);
 
-System.out.print(id);
 */
-MemberDaoService.getInstance().create(member);
+System.out.println(id);
+System.out.println(pass);
+System.out.println(name);
+System.out.println(phone);
+System.out.println(email);
 
-response.sendRedirect("main.jsp");
+
+
+Member member = new Member(-97, id, pass, name, phone, email, birh, address, ban, -99);
+try{
+	//성공
+	int result = MemberDaoService.getInstance().create(member);
+	if(result == 1) {
+	out.println("<script>");
+	out.println("alert('가입이 완료 되었습니다. 축하드립니다')");
+	out.println("location.href='user_login_form.jsp'");
+	out.println("</script>");
+	return;
+	}
+} catch(ExistedUserException e) {
+	//request.setAttribute("fMember", member);
+	request.setAttribute("MSG", e.getMessage()); 
+	RequestDispatcher rd = request.getRequestDispatcher("../User/user_write_form.jsp");
+	rd.forward(request, response);
+} catch(Exception e) { %>
+	<script>
+	alert('가입 실패-메인화면으로');
+	</script>
+<%	RequestDispatcher rd = request.getRequestDispatcher("../main.jsp");
+	rd.forward(request, response);
+}
 
 %>
 

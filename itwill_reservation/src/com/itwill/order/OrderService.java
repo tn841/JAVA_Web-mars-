@@ -12,14 +12,10 @@ import com.itwill.user.MemberDaoService;
 public class OrderService {
 	
 	private static OrderService _instance;
-	private OrderDao od;
-	private MemberDaoService mds;
-	private ItemService is;
+	
 	
 	public OrderService() {
-		od=OrderDao.getInstance();
-		mds=MemberDaoService.getInstance();
-		is=ItemService.getInstance();
+
 	}
 	
 	public static  OrderService getInstance(){
@@ -34,22 +30,24 @@ public class OrderService {
 	 * 회원의 포인트 감소
 	 */
 	public void buy(Order order) throws Exception{
-		od.insertOder(order.getM_no(), order.getJ_desc());
+		OrderDao.getInstance().insertOder(order.getM_no(), order.getJ_desc());
+		Order o = OrderDao.getInstance().selectOrderOnlyByM_no(order.getM_no());
 		Collection<OrderDetail> col = order.getOdMap().values();
 		for (OrderDetail orderDetail : col) {
-			int itemPoint = is.getPoint(orderDetail.getI_no(), 0);
+			int itemPoint = ItemService.getInstance().getPoint(orderDetail.getI_type(), 0);
 			int jd_tot = orderDetail.getJd_quantity()*itemPoint;
 			orderDetail.setJd_tot(jd_tot);
-			od.insertOD(orderDetail);
+			orderDetail.setJ_no(o.getJ_no());
+			OrderDao.getInstance().insertOD(orderDetail);
 		}
-		mds.modifyPoint(order.getM_no(), -(order.getJ_tot()));
+		MemberDaoService.getInstance().modifyPoint(order.getM_no(), -(order.getJ_tot()));
 	}
 	
 	/*
 	 * 회원pk를 입력받아서 마이페이지에서 보여줄 Order객체 반환
 	 */
 	public Order getOrder(int m_no) throws Exception{
-		return od.selectOrder(m_no);
+		return OrderDao.getInstance().selectOrder(m_no);
 	}
 	/* 
 	 * Order pk받아서 Order 취소(OrderDetail도 함께 취소) db에서 삭제
@@ -57,29 +55,29 @@ public class OrderService {
 	 */
 	
 	public void cancle(int jumun_no) throws Exception{
-		Order o = od.selectOrderByJ_no(jumun_no);
+		Order o = OrderDao.getInstance().selectOrderByJ_no(jumun_no);
 		Collection<OrderDetail> col = o.getOdMap().values();
 		for (OrderDetail orderDetail : col) {
-			od.deleteOD(orderDetail.getJd_no());
+			OrderDao.getInstance().deleteOD(orderDetail.getJd_no());
 		}
-		od.deleteOrder(o.getJ_no());
-		mds.modifyPoint(o.getM_no(), o.getJ_tot());
+		OrderDao.getInstance().deleteOrder(o.getJ_no());
+		MemberDaoService.getInstance().modifyPoint(o.getM_no(), o.getJ_tot());
 	}
 	/*
 	 * 아이템 사용시 소유한 아이템 수량 1감소
 	 */
-	public void quanDecre(int m_no, int item_no) throws Exception{
-		Order o = od.selectOrder(m_no);
-		OrderDetail ode = o.getOdMap().get(item_no);
+	public void quanDecre(int m_no, int item_type) throws Exception{
+		Order o = OrderDao.getInstance().selectOrder(m_no);
+		OrderDetail ode = o.getOdMap().get(item_type);
 		if(ode.getJd_quantity()-1==0){
-			od.deleteOD(ode.getJd_no());
+			OrderDao.getInstance().deleteOD(ode.getJd_no());
 			return;
 		}
 		ode.setJd_quantity(ode.getJd_quantity()-1);
-		int itemPoint = is.getPoint(ode.getI_no(), 0);
+		int itemPoint = ItemService.getInstance().getPoint(ode.getI_type(), 0);
 		int jd_tot = ode.getJd_quantity()*itemPoint;
 		ode.setJd_tot(jd_tot);
-		od.updateOD(ode);
+		OrderDao.getInstance().updateOD(ode);
 	}
 	
 }

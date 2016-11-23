@@ -21,7 +21,7 @@
 				<td valign="top">
 					<table width="185">
 						<tbody><tr>
-							<td align="right"><a href="javascript:;" id="family_site" target="_self"><img src="/new/images/link.gif" alt=""></a></td>
+							<td align="right"><a href="javascript:;" id="family_site" target="_self"><img src="https://www.itwill.co.kr:47809/new/images/link.gif" alt=""></a></td>
 							<!--td><img src="/new/images/icon_blog.gif" alt="ºí·Î±×"></td-->
 						</tr>
 					</tbody></table>

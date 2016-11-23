@@ -1,8 +1,9 @@
+<%@page import="com.itwill.order.OrderDao"%>
 <%@page import="com.itwill.user.Member"%>
 <%@page import="java.sql.Date"%>
 <%@page import="com.itwill.user.MemberDaoService"%>
-<%@page import="com.itwill.user.UserDao"%>
-<%@page import="com.itwill.user.User"%>
+<%@page import="com.itwill.user.MemberDao"%>
+<%@page import="com.itwill.user.Member"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,12 +13,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <% 
-Member member= new Member(99,"1","1","1","1","1",null,"1","1",1);
 
-MemberDaoService.getInstance().Create(member);
+OrderDao orederDao = new OrderDao();
 
-//System.out.print(user.getM_address());
+orederDao.insertOder(7, "11");
+
 %>
 
 

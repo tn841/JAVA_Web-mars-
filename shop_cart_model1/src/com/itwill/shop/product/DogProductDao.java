@@ -11,12 +11,7 @@ public class DogProductDao  extends RdbmsDao{
 	public DogProductDao() {
 	
 	}
-	public List<DogProduct> getDogs() {
-		Connection con=null;
-		PreparedStatement pstmt = null; 
-		ResultSet rs = null;
-		List<DogProduct> dogs = null;
-
+	public List<DogProduct> getDogs() { v    
 		try{
 			con=getConnection();
 			String sql="select * from dogproduct";

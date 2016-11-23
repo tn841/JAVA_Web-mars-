@@ -13,7 +13,7 @@ CREATE TABLE Member(
 		member_name                   		VARCHAR2(10)		 NULL ,
 		member_phone                  		NUMBER(10)		 NULL ,
 		member_email                  		VARCHAR2(10)		 NULL ,
-		member_birth                  		DATE		 NULL ,
+		member_birth                  		VARCHAR2(20)		 NULL ,
 		member_address                		VARCHAR2(10)		 NULL ,
 		member_class                  		VARCHAR2(10)		 NULL ,
 		member_point                  		VARCHAR2(10)		 NULL ,
@@ -81,7 +81,8 @@ CREATE TABLE board(
 		board_groupno                 		NUMBER(10)		 NULL ,
 		board_depth                   		NUMBER(10)		 NULL ,
 		board_step                    		NUMBER(10)		 NULL ,
-		board_image                   		VARCHAR2(20)		 NULL 
+		board_image                   		VARCHAR2(20)		 NULL, 
+		b_score                             VARCHAR2(20)          NULL 
 );
 
 

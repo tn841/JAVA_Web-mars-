@@ -131,7 +131,7 @@
 		<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" maxActive="500" maxIdle="100" name="jdbc/OracleDB" password="user21" type="javax.sql.DataSource" url="jdbc:oracle:thin:@210.16.214.203:1521:xe" username="user21"/> 
       </Context>
       
-      <Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/><Context docBase="user_model1" path="/user_model1" reloadable="true" source="org.eclipse.jst.jee.server:user_model1"/><Context docBase="shop_cart_model1" path="/shop_cart_model1" reloadable="true" source="org.eclipse.jst.jee.server:shop_cart_model1"/><Context docBase="board_model1" path="/board_model1" reloadable="true" source="org.eclipse.jst.jee.server:board_model1"/></Host>
+      <Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/><Context docBase="user_model1" path="/user_model1" reloadable="true" source="org.eclipse.jst.jee.server:user_model1"/><Context docBase="shop_cart_model1" path="/shop_cart_model1" reloadable="true" source="org.eclipse.jst.jee.server:shop_cart_model1"/><Context docBase="board_model1" path="/board_model1" reloadable="true" source="org.eclipse.jst.jee.server:board_model1"/><Context docBase="svg_test_site" path="/svg_test_site" reloadable="true" source="org.eclipse.jst.jee.server:svg_test_site"/><Context docBase="project2" path="/project2" reloadable="true" source="org.eclipse.jst.jee.server:project2"/><Context docBase="itwill_reservation" path="/itwill_reservation" reloadable="true" source="org.eclipse.jst.jee.server:itwill_reservation"/></Host>
     </Engine>
   </Service>
 </Server>

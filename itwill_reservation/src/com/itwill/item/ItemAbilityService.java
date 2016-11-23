@@ -8,7 +8,6 @@ public class ItemAbilityService {
 	/*
 	 * Dao 선언
 	 */
-	MemberDao memberDao = new MemberDao();
 	
 	/*
 	 * 자리뺏기 아이템 구현

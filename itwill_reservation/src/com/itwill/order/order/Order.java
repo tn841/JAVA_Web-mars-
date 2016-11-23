@@ -11,8 +11,8 @@ public class Order {
 	private int j_no;
 	private int m_no;
 	private Date j_date;
-	private int j_tot;
-	private int j_quantity;
+	private int j_tot=0;
+	private int j_quantity=0;
 	private String j_desc;
 	private HashMap<Integer,OrderDetail> odMap;
 	

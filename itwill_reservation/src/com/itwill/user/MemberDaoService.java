@@ -99,10 +99,19 @@ public class MemberDaoService {
 		Member mb = md.findMemberByNo(m_no);
 		mb.setM_point(mb.getM_point()+m_point);
 		md.update(mb);
-		
-		
 	}
 	
+	/*
+	 * 8.생년월일, 전화번호로 회원검색
+	 */
+	public Member findMByBP(String birth, String phone) throws Exception {
+		Member findMember = md.findMemberByBP(birth, phone);
+		return findMember;
+	}
+	
+	/*
+	 * 
+	 */
  Member member = new Member(-97, "1", "2", "4", "4", "5", null, "4", "4", 100);
 	
 }
