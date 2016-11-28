@@ -46,8 +46,6 @@ public class HandlerMapping {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	public Controller getControllerMap(String command) {
