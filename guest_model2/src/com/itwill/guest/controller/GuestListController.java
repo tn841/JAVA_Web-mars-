@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itwill.guest.Guest;
 import com.itwill.guest.GuestDao;
+import com.itwill.winter.Controller;
 
 public class GuestListController implements Controller {
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response){

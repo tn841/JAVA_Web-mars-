@@ -1,9 +1,11 @@
-package com.itwill.guest.controller;
+package com.itwill.winter;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,14 +17,28 @@ import com.itwill.guest.GuestDao;
 /*
  * 클라이언트의 모든요청을 받는 서블릿
  */
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
+	private HandlerMapping handlerMap;
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		System.out.println(">>> 1.DispatcherServlet.init() 서블릿 생성자호출직후 단한번호출되는메쏘드");
+		ServletContext context = this.getServletContext();
+		String controllerMappingLocation = config.getInitParameter("controllerMappingLocation");
+		
+		String contextRealPath = context.getRealPath(controllerMappingLocation);
+		System.out.println(">>> 2.설정파일경로:"+contextRealPath);
+		this.handlerMap=new HandlerMapping(contextRealPath);
+		
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request, response);
 	}
+	
 	private void processRequest(
 			HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException{
@@ -45,36 +61,19 @@ public class DispatcherServlet extends HttpServlet {
 		System.out.println("1.request command:"+command);
 		
 		/*
-		 * 2.요청에따른 업무실행
+		 * 2.요청command에따른 업무실행
 		 */
 		String forwardPath="";
-		Controller controller = null;
+		Controller controller=null;
 		/****************************************/
-		if(command.equals("/guest_main.do")){
-			controller = new GuestMainController();
-		}else if(command.equals("/guest_list.do")){
-			controller = new GuestListController();
-		}else if(command.equals("/guest_view.do")){
-			controller = new GuestViewController();
-		}else if(command.equals("/guest_write_form.do")){
-			controller = new GuestWriteFormController();
-		}else if(command.equals("/guest_write_action.do")){
-			controller = new GuestWriteActionController();
-		}else if(command.equals("/guest_remove_action.do")){
-			controller = new GuestRemoveActionController();
-		}else if(command.equals("/guest_modify_form.do")){
-			controller = new GuestModifyFormController();
-		}else if(command.equals("/guest_modify_action.do")){
-			controller = new GuestModifyActionController();
-		}else{
-			controller = new GuestBadCommandController();
-		}
-		
+		//HandlerMap객체로부터 요청command에해당하는
+		//Controller객체반환
+		controller = handlerMap.getControllerMap(command);
 		/****************************************/
 		/*
 		 * 3.forward,redirect
 		 */
-		forwardPath = controller.handleRequest(request, response);
+		forwardPath = controller.handleRequest(request,response);
 		/*
 		 * ex> forward:/xxx.jsp
 		 *     redirect:/xxx.do 
@@ -88,9 +87,9 @@ public class DispatcherServlet extends HttpServlet {
 		if(forwardString.equals("redirect")){
 			response.sendRedirect(forwardPath);
 		}else if(forwardString.equals("forward")){
-			String prefix = "/WEB-INF/jsp/";
-			String suffix = ".jsp";
-			forwardPath = prefix+forwardPath+suffix;
+			String prefix="/WEB-INF/jsp/";
+			String surffix=".jsp";
+			forwardPath=prefix+forwardPath+surffix;
 			RequestDispatcher rd=
 					request.getRequestDispatcher(forwardPath);
 			rd.forward(request, response);

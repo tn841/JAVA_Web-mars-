@@ -3,6 +3,8 @@ package com.itwill.guest.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itwill.winter.Controller;
+
 public class GuestBadCommandController implements Controller {
 
 	@Override

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itwill.guest.Guest;
 import com.itwill.guest.GuestDao;
+import com.itwill.winter.Controller;
 
 public class GuestViewController implements Controller {
 

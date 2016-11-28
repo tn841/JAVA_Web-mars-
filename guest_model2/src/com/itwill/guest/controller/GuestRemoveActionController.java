@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itwill.guest.GuestDao;
+import com.itwill.winter.Controller;
 
 public class GuestRemoveActionController implements Controller {
 

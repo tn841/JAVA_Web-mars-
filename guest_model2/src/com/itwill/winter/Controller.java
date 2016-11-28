@@ -1,4 +1,4 @@
-package com.itwill.guest.controller;
+package com.itwill.winter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
