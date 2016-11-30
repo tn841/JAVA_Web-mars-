@@ -29,18 +29,19 @@ public class UserLoginActionController implements Controller{
 			ArrayList<String> msgList = new ArrayList<String>();
 
 			try{
+				//System.out.println("로그인 시도");
 				User loginUser = UserService.getInstance().login(userId, pass);
-			
+				//System.out.println("로그인 과정에서 예외발생");
 				//session.setAttribute("sUserId",	userId);
 				//session.setAttribute("sUser", loginUser);
 				//response.sendRedirect("user_list.jsp");
 				request.getSession().setAttribute("sUserId", userId);
 				request.getSession().setAttribute("sUser", loginUser);
 				
-				List<User> userlist = UserService.getInstance().findUserList();
-				request.setAttribute("userList",userlist);
-				forwardPath = "forward:user_list";
-				System.out.println("로그인 성공");
+				//List<User> userlist = UserService.getInstance().findUserList();
+				//request.setAttribute("userList",userlist);
+				forwardPath = "redirect:user_list.do";
+				//System.out.println("로그인 성공");
 				
 			}catch(UserNotFoundException e){
 				//아이디 없음
@@ -60,7 +61,7 @@ public class UserLoginActionController implements Controller{
 			}catch(Exception e){
 				//response.sendRedirect("error/error.jsp");
 				request.setAttribute("error_msg", e.getMessage());
-				forwardPath= "error/error.jsp";
+				forwardPath= "forward:error";
 
 			}
 		}

@@ -67,6 +67,7 @@ public class UserService {
 		/*
 		 * 2. 비번 일치 여부
 		 */
+		//System.out.println("비번 일치여부 체크 호출 직전");
 		if(!findUser.isMatchPassword(pass)){
 			throw new PasswordMismatchException("비밀번호가 일치하지 않음.");
 		}

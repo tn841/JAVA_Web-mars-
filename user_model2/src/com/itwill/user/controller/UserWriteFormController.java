@@ -9,7 +9,7 @@ public class UserWriteFormController implements Controller{
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		String forwardPath = "";
+		String forwardPath = "forward:user_write_form";
 		return forwardPath;
 	}
 

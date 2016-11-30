@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,6 +13,13 @@
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
+<core:if test="${!empty MSG}">
+	<script>alert('메시지 있음');</script>
+	asdfasdfasdfasdf
+</core:if>
+<core:if test="${empty MSG}">
+	<script>alert("메시지 없음");</script>
+</core:if>
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->

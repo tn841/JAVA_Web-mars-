@@ -127,6 +127,7 @@ public class UserDao extends RdbmsDao {
 			if (con != null)
 				releaseConnection(con);
 		}
+		//System.out.println("UserDao에서 로그인 성공한 user : "+user.getUserId());
 		return user;
 	}
 	/*

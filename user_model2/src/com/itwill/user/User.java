@@ -68,9 +68,11 @@ public class User {
 	 */
 	public boolean isMatchPassword(String password){
 		boolean isMatch=false;
+		//System.out.println("User에서 실제 비번 일치 체크 함, 체크하려는 문자열 : "+password);
 		if(this.password.equals(password)){
 			isMatch=true;
 		}
+		//System.out.println("User에서 비번 일치 여부 : "+isMatch);
 		return isMatch;
 	}
 	

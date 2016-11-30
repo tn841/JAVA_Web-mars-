@@ -58,13 +58,13 @@
 			f.password.select();
 			return false;
 		}
-		f.action = "user_write_action.jsp";
+		f.action = "user_write_action.do";
 		f.method='POST';
 		f.submit();
 	}
 
 	function userList() {
-		f.action = "user_list.jsp";
+		f.action = "user_list.do";
 		f.submit();
 	}
 	

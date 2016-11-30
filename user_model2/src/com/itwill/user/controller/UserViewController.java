@@ -11,7 +11,7 @@ public class UserViewController implements Controller{
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		String forwardPath = "";
+		String forwardPath = "forward:user_view";
 		
 		/*
 		1. 파라미터 받기
@@ -20,14 +20,18 @@ public class UserViewController implements Controller{
 		*/
 		
 		String userId = (String)request.getParameter("userId");
+		User findUser = null;
 		
 		try {
-			User findUser = UserService.getInstance().findUserById(userId);
+			findUser = UserService.getInstance().findUserById(userId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		String inputButton = "Button"; 
-	
+		
+		request.setAttribute("user", findUser);
+		if(userId.equals(request.getSession().getAttribute("sUserId"))){
+			request.setAttribute("inputButton", "Button");
+		}
 		return forwardPath;
 	}
 

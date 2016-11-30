@@ -3,21 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ include file="user_login_check.jspf" %>
-<%
-	/*
-		1. 파라미터 받기
-		2. UserService.finduser 호출
-		3. 결과출력
-	*/
-	
-	String userId = (String)request.getParameter("userId");
-	
-	User findUser = UserService.getInstance().findUserById(userId);
-	String inputButton = "Button"; 
-	if(!userId.equals(sUserId)){
-		inputButton = "hidden";
-	}
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,13 +18,13 @@
 	}
 
 	function userModify() {
-		f.action = "user_modify_form.jsp";
+		f.action = "user_modify_form.do";
 		f.submit();
 	}
 
 	function userRemove() {
 		if (confirm("정말 삭제하시겠습니까?")) {
-			f.action = "user_remove_action.jsp";
+			f.action = "user_remove_action.do";
 			f.submit();
 		}
 	}
@@ -81,27 +67,27 @@
 								</tr>
 							</table> <!-- view Form  -->
 							<form name="f" method="post">
-								<input type="hidden" name="userId" value="<%=findUser.getUserId() %>" />
+								<input type="hidden" name="userId" value="${user.userId}" />
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">사용자
 											아이디</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											<%=findUser.getUserId() %>
+											${user.userId}
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											<%=findUser.getName() %>
+											${user.name}
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
 											주소</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											<%=findUser.getEmail() %>
+											${user.email}
 										</td>
 									</tr>
 								</table>
@@ -109,8 +95,10 @@
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
 									<td align=center>
-									<input type="<%=inputButton %>" value="수정" onClick="userModify()"> &nbsp; 
-									<input type="<%=inputButton %>" value="삭제" onClick="userRemove()"> &nbsp; 
+									<core:if test="${!empty inputButton}">
+										<input type="button" value="수정" onClick="userModify()"> &nbsp; 
+										<input type="button" value="삭제" onClick="userRemove()"> &nbsp;
+									</core:if> 
 									<input type="button" value="목록" onClick="userList()"></td>
 								</tr>
 							</table>
