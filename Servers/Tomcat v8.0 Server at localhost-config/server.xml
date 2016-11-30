@@ -93,17 +93,17 @@
 					Note: The pattern used is equivalent to using pattern="common" -->
 				<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-				<Context docBase="project2" path="/project2" reloadable="true" source="org.eclipse.jst.jee.server:project2"/>
-				<Context docBase="board_model1" path="/board_model1" reloadable="true" source="org.eclipse.jst.jee.server:board_model1"/>
 				
-				<Context docBase="servletSite" path="/servletSite" reloadable="true" source="org.eclipse.jst.jee.server:servletSite"/>
-				<Context docBase="jspSite" path="/jspSite" reloadable="true" source="org.eclipse.jst.jee.server:jspSite"/>
-				<Context docBase="guest_model1" path="/guest_model1" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1"/>
-				<Context docBase="svg_test_site" path="/svg_test_site" reloadable="true" source="org.eclipse.jst.jee.server:svg_test_site"/>
-				<Context docBase="itwill_reservation" path="/itwill_reservation" reloadable="true" source="org.eclipse.jst.jee.server:itwill_reservation"/>
-				<Context docBase="user_model1" path="/user_model1" reloadable="true" source="org.eclipse.jst.jee.server:user_model1"/>
-				<Context docBase="shop_cart_model1" path="/shop_cart_model1" reloadable="true" source="org.eclipse.jst.jee.server:shop_cart_model1"/>
-			<Context docBase="jspSiteModel2" path="/jspSiteModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspSiteModel2"/><Context docBase="guest_model2" path="/guest_model2" reloadable="true" source="org.eclipse.jst.jee.server:guest_model2"/><Context docBase="guest_model1.5" path="/guest_model1.5" reloadable="true" source="org.eclipse.jst.jee.server:guest_model1.5"/><Context docBase="guest_winter" path="/guest_winter" reloadable="true" source="org.eclipse.jst.jee.server:guest_winter"/></Host>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			<Context docBase="user_model2" path="/user_model2" reloadable="true" source="org.eclipse.jst.jee.server:user_model2"/><Context docBase="user_model1" path="/user_model1" reloadable="true" source="org.eclipse.jst.jee.server:user_model1"/></Host>
 		</Engine>
 	</Service>
 </Server>
