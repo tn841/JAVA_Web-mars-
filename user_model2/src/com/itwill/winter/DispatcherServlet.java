@@ -69,6 +69,10 @@ public class DispatcherServlet extends HttpServlet {
 			forwardPath = prefix+forwardPath+surffix;
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPath);
 			rd.forward(request, response);
+		}else if(forwardStr.equals("forward-chain")){
+			//controller·Î forward
+			RequestDispatcher rd = request.getRequestDispatcher(forwardPath);
+			rd.forward(request, response);
 		}
 	}
 

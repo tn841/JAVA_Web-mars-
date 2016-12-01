@@ -14,12 +14,9 @@
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
 <core:if test="${!empty MSG}">
-	<script>alert('메시지 있음');</script>
-	asdfasdfasdfasdf
+	<script>alert('${MSG}');</script>
 </core:if>
-<core:if test="${empty MSG}">
-	<script>alert("메시지 없음");</script>
-</core:if>
+
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->

@@ -27,12 +27,12 @@ public class UserRemoveActionController implements Controller{
 		//삭제 성공
 		//response.sendRedirect("user_list.jsp");
 		request.setAttribute("MSG", "삭제 되었습니다.");
-		forwardPath = "redirect:user_logout_action.do";
+		forwardPath = "forward-chain:user_logout_action.do";
 	
 		
 		}catch(RemoveUserException e){
 			request.setAttribute("MSG", "삭제 도중 에러가 발생했습니다.");
-			forwardPath = "forward:user_list";
+			forwardPath = "forward-chain:user_list.do";
 		}catch(Exception e){
 			forwardPath = "forward:error";		
 		}
