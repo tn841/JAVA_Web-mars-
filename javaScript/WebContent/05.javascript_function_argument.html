@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function func1(){
+		document.write('func1() 실행');
+	}
+	function func2(){
+		document.write('func2() 실행');
+	}
+	function func3(f1, f2){
+		f1();
+		f2();
+	}
+	function func4(){
+		var no = 5;
+		return function(){
+			document.write('no='+no+'<br>');
+		};
+	}
+</script>
+</head>
+
+<body>
+	<h1>function argument</h1></hr>
+	<script>
+		func3(func1, func2);
+		
+		func3(
+			function(){
+				document.write('익명함수1')
+			},
+			function(){
+				document.write('익명함수2<br>')
+			});
+		
+		var returnFunc = func4();	//반환되는 function을 변수에 저장할 수 있다.
+		returnFunc();				//변수에서 호출 가능, 또한 closure라고 해서 func4()의 지역변수 no가 스코프를 침범하여 실행된다.(로컬 상태의 모든 것을 가지고간다.)
+		returnFunc();
+		returnFunc();
+		returnFunc();
+		
+		document.write('</br></br>');
+		func4()();	//return 된 함수를 바로 호출
+	</script>
+</body>
+
+</html>

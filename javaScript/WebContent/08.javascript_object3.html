@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ol{
+		list-style: none;
+	}
+</style>
+<script type="text/javascript">
+	/*
+		<< 자바스크립트 객체생성 >>
+		1. JSON 사용( [ , ] , { , }, , ,: )	
+		2. 생성자함수를 사용
+	*/
+	
+	/****************************************************/
+
+	/*
+	학생객체를 생성해내는 function
+	*/
+	function createStudent(id, name, kor, eng, math){
+		return {
+			id:id,
+			name:name,
+			kor:kor,
+			eng:eng,
+			mat:math,
+			tot:0,
+			calculateTot:function(){
+				this.tot=this.kor+this.eng+this.mat;
+			},
+			toString:function(){
+				return '['+this.id+']'+this.name+':'+this.tot
+			},
+			setId:function(id){
+				this.id=id;
+			},
+			setName:function(name){
+				this.name=name;
+			},
+			getId:function(){
+				return this.id;
+			},
+			getName:function(){
+				return this.name;
+			}
+		};
+	}
+	
+	var studentArr = [];
+	studentArr.push(createStudent("1", "이상해씨", 81, 88, 83));
+	studentArr.push(createStudent("2", "이상해풀", 91, 89, 88));
+	studentArr.push(createStudent("3", "이상해꽃", 101, 94, 93));
+	
+	
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	document.write("<ol>");
+	for (var i = 0; i < studentArr.length; i++) {
+		studentArr[i].calculateTot();
+		document.write("<li>"+studentArr[i].toString()+"</li>")
+	}
+	document.write("</ol>");
+</script>
+
+</body>
+</html>
+

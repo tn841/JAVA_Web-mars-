@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ol{
+		list-style: none;
+	}
+</style>
+<script type="text/javascript">
+	/*
+		<< 자바스크립트 객체생성 >>
+		1. JSON 사용( [ , ] , { , }, , ,: )	
+		2. 생성자함수를 사용
+	*/
+	
+	/****************************************************/
+	
+	var studentArray=[];
+	var studentOtherArray=[];
+	
+	/*****생성자함수 case1****/
+	function Student(id,name,kor,eng,mat){
+		this.id=id;
+		this.name=name;
+		this.kor=kor;
+		this.eng=eng;
+		this.mat=mat;
+		this.tot=0;
+		this.calculateTot=function(){
+			this.tot=this.kor+this.eng+this.mat;
+		}
+		this.toString=function(){
+			return '['+this.id+']'+this.name+''+this.kor+','+this.eng+','+this.mat+','+this.tot;
+		}
+	}
+	/*
+	window.Student('xxx','김경호',23,34,67);
+	alert(window.id);
+	alert(window.name);
+	alert(window.kor);
+	alert(window.mat);
+	alert(window.tot);
+	window.calculateTot();
+	alert(window.tot);
+	*/
+	var student1 = new Student('xxx','김경호',23,34,67);
+	var student2 = new Student('yyy','심경호',56,88,99);
+	var student3 = new Student('zzz','정경호',88,12,88);
+	
+	studentArray.push(student1);
+	studentArray.push(student2);
+	studentArray.push(student3);
+	
+	/*
+	var studentArray2= new Array();
+	var today=new Date();
+	*/
+	/*****생성자함수 case2****/
+	
+	var StudentOther =function(id,name,kor,eng,mat){
+		this.id=id;
+		this.name=name;
+		this.kor=kor;
+		this.eng=eng;
+		this.mat=mat;
+		this.calculateTot=function(){
+			this.tot=this.kor+this.eng+this.mat;
+		}
+		this.toString=function(){
+			return '['+this.id+']'+this.name+''+this.kor+','+this.eng+','+this.mat+','+this.tot;
+		}
+	};
+	
+	var studentOther1= new StudentOther('aaa','에이',34,67,89);
+	var studentOther2= new StudentOther('bbb','비이',55,77,99);
+	studentOtherArray.push(studentOther1);
+	studentOtherArray.push(studentOther2);
+	
+	
+	
+	
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	document.write("<ol>");
+	document.write("<li>"+student1.id+"</li>");
+	document.write("<li>"+student1.name+"</li>");
+	document.write("<li>"+student1.kor+"</li>");
+	document.write("<li>"+student1.eng+"</li>");
+	document.write("<li>"+student1.mat+"</li>");
+	document.write("<li>"+student1.tot+"</li>");
+	student1.calculateTot();
+	document.write("<li>"+student1.tot+"</li>");
+	document.write("<li>---------Student--------------</li>");
+	for (var i = 0; i < studentArray.length; i++) {
+		studentArray[i].calculateTot();
+		document.write("<li>"+studentArray[i].toString()+"</li>");
+		
+	}
+	document.write("<li>---------StudentOther---------</li>");
+	for (var i = 0; i < studentOtherArray.length; i++) {
+		studentOtherArray[i].calculateTot();
+		document.write("<li>"+studentOtherArray[i].toString()+"</li>");
+		
+	}
+	
+	document.write("</ol>");
+</script>
+
+</body>
+</html>
+

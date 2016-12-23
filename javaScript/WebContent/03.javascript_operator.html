@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var a=1;
+	var b=2;
+	/*
+	산술
+	*/
+	var result = a+b;
+	result = a-b;
+	result = a/b;
+	result = a%b;
+	alert("1."+result);
+	/*
+	관계
+	*/
+	result = a>b;
+	result = a<b;
+	result = a>=b;
+	result = a<=b;
+	alert("2."+result);
+	
+	var date=new Date();
+	var hour = date.getHours();
+	var msg='';
+	if(hour>=12){
+		msg='오후입니다:'+hour;
+	}else if(hour>=18){
+		msg='저녁입니다:'+hour;
+	}else if(hour>=21){
+		msg='늦은저녁입니다:'+hour;
+	}else{
+		msg='오전입니다:'+hour;
+	}
+	
+	var no=23;
+	
+	switch (no%2) {
+	case 0:
+		alert(no+" 는 짝수입니다.")
+		break;
+
+	case 1:
+		alert(no+" 는 홀수입니다.")
+		break;
+	}
+	/*
+	삼항연산자
+	*/
+	var level=78;
+	
+	(level > 0) ? alert('양수'):alert('0 이나음수'); 
+	
+	var msg2 = (level>0) ? '양수' :'0 이나음수';
+	alert(msg2);
+	
+	/*
+	짧은 조건문
+	*/
+	true  || alert('true  || A...');
+	false || alert('false || B...');
+	true  && alert('true  && A...');
+	false && alert('false && B...');
+</script>
+</head>
+<body>
+<h1>javascript 연산자</h1><hr/>
+<script type="text/javascript">
+	document.write(msg+"<br/>");
+</script>
+</body>
+</html>

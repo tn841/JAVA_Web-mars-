@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+		선언적함수
+		*/
+		function func1(){
+			var localMsg1='func1로칼메세지1';
+			window.document.write('func1()실행'+localMsg1+'<br/>');
+		}
+		function func2(){
+			window.document.write('func2()실행<br/>');
+		}
+		var msg1="메세지1";
+		var msg2="메세지2";
+		/*
+		함수를 변수에대입
+		*/
+		var funcVar3 = function func3( msg ){
+			
+			document.write("func3()실행["+msg+"]<br/>")
+		}
+		/*
+		익명함수를 변수에대입
+		*/
+		var funcVar4 = function(msg){
+			document.write("익명function4실행["+msg+"]<br/>")
+		}
+		
+		var funcVar5 = func1;
+		
+		
+		
+	</script>
+</head>
+<body>
+<h1> javascript function object</h1><hr/>
+<script type="text/javascript">
+	alert(window.func1);
+	alert(window.func2);
+	/*
+	func1()호출
+	func2()호출
+	*/
+	window.func1();
+	window.func2();
+	
+	document.write(window.msg1+'<br/>');
+	document.write(window.msg2+'<br/>');
+	document.write(window.localMsg1+'<br/>');
+	/*
+	function 변수의 값
+	*/
+	document.write(window.funcVar3+'<br/>');
+	/*
+	function 변수의 호출
+	*/
+	window.funcVar3('인자3');
+	window.funcVar4('인자4');
+	funcVar5();
+	
+	
+	
+	(function(msg){
+		document.write("익명함수의정의실행["+msg+"]<br/>")
+	})('인자888');
+	
+	
+	
+	
+	
+	
+	
+</script>
+
+</body>
+</html>

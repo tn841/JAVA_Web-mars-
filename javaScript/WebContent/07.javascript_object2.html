@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ol{
+		list-style: none;
+	}
+</style>
+<script type="text/javascript">
+	/*
+		<< 자바스크립트 객체생성 >>
+		1. JSON 사용( [ , ] , { , }, , ,: )	
+		2. 생성자함수를 사용
+	*/
+	var noArray=[1,2,3,4,5,6];
+	var nameArr=['피카츄', '라이츄', '파이리', '꼬부기', '버터플', '야도란', '피존투', '또가스'];
+	
+	var objArr = [
+	              {
+	            	  no:1,
+	            	  name:'이상해씨',
+	            	  type:['풀'],
+	            	  description:{
+	            		skill:['덩쿨 채찍'],
+	            		weak:'불'
+	            	  }
+	              }, 
+	              {
+	            	  no:2,
+	            	  name:'이상해풀',
+	            	  type:['풀'],
+	            	  description:{
+	            		  	skill:['덩쿨 채찍', '잎날 가르기', '씨뿌리기'],
+		            		weak:'불'
+		            	  }
+	              }, 
+	              {
+	            	  no:4,
+	            	  name:'파이리',
+	            	  type:['불'],
+	            	  description:{
+	            		  	skill:['할퀴기', '불꽃 세례'],
+		            		weak:'물'
+		            	  }
+	              }, 
+	              {
+	            	  no:6,
+	            	  name:'리자몽',
+	            	  type:['불', '비행'],
+	            	  description:{
+	            		 	skill:['화염 방사', '공중 날기'],
+		            		weak:'물'
+		            	  }
+	              }, 
+	              {
+	            	  no:251,
+	            	  name:'뮤',
+	            	  type:['에스퍼'],
+	            	  description:{
+	            			skill:['사이코키네시스', '변신', '회복'],	
+		            		weak:'없음'
+		            	  }
+	              }
+	             ];
+	
+	/****************************************************/
+	var studentObj1={
+			id:'guard',
+			name:'KIM',
+			kor:45,
+			eng:90,
+			mat:89,
+			tot:0,
+			calculateTot:function(){
+				this.tot=this.kor+this.eng+this.mat;
+			},
+			toString:function(){
+				return '['+this.id+']'+this.name+':'+this.tot
+			},
+			setId:function(id){
+				this.id=id;
+			},
+			setName:function(name){
+				this.name=name;
+			},
+			getId:function(){
+				return this.id;
+			},
+			getName:function(){
+				return this.name;
+			}
+	};
+	
+	var studentObj2={
+			id:'xxxx',
+			name:'JIM',
+			kor:66,
+			eng:99,
+			mat:88,
+			tot:0,
+			calculateTot:function(){
+				this.tot=this.kor+this.eng+this.mat;
+			},
+			toString:function(){
+				return '['+this.id+']'+this.name+':'+this.tot
+			},
+			setId:function(id){
+				this.id=id;
+			},
+			setName:function(name){
+				this.name=name;
+			},
+			getId:function(){
+				return this.id;
+			},
+			getName:function(){
+				return this.name;
+			}
+	};
+	var studentObj3={
+			id:'yyyy',
+			name:'HONG',
+			kor:77,
+			eng:88,
+			mat:33,
+			tot:0,
+			calculateTot:function(){
+				this.tot=this.kor+this.eng+this.mat;
+			},
+			toString:function(){
+				return '['+this.id+']'+this.name+':'+this.tot
+			},
+			setId:function(id){
+				this.id=id;
+			},
+			setName:function(name){
+				this.name=name;
+			},
+			getId:function(){
+				return this.id;
+			},
+			getName:function(){
+				return this.name;
+			}
+	};
+	
+	var studentArr = [];
+	studentArr.push(studentObj1);
+	studentArr.push(studentObj2);
+	studentArr.push(studentObj3);
+	
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	document.write("<ul>");
+	for(var i=0; i<objArr.length; i++){
+		document.write("<li> no:"+window.objArr[i].no+"</li>");
+		document.write("<li> name:"+window.objArr[i].name+"</li>");
+		document.write("<li> type:"+window.objArr[i].type+"</li>");
+		document.write("<li> skill:"+window.objArr[i].description.skill+"</li>");
+		document.write("<li> weak"+window.objArr[i].description.weak+"</li><br>");
+	}
+	document.write("<li>---------------studentArr---------------</li><br>");
+	for (var i = 0; i < studentArr.length; i++) {
+		studentArr[i].calculateTot();
+		document.write("<li>"+studentArr[i].toString()+"</li>");
+	}
+	
+	document.write("<br>");
+	document.write("<li> sorting.. </li><br>");
+	studentArr.sort(function(stu1, stu2){
+		return stu2.tot - stu1.tot; 
+	})
+	for (var i = 0; i < studentArr.length; i++) {
+		studentArr[i].calculateTot();
+		document.write("<li>"+studentArr[i].toString()+"</li>");
+	}
+	document.write("</ul>");
+</script>
+
+</body>
+</html>

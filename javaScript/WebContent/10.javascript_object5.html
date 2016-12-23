@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ol{
+		list-style: none;
+	}
+</style>
+<script type="text/javascript" src="Student.js" charset="utf-8"></script>
+<script type="text/javascript" src="Student_prototype.js" charset="utf-8"></script>
+<script type="text/javascript">
+	/*
+		<< 자바스크립트 객체생성 >>
+		1. JSON 사용( [ , ] , { , }, , ,: )	
+		2. 생성자함수를 사용
+	*/
+	var student1=new com.itwill.Student('ppp','피이이',56,78,55);
+	var student2=new com.itwill.Student('fff','에에프',89,99,94);
+	
+	var stdProto1 = new com.itwill.StudentProto('16', '캐터피', 42, 55, 42);
+	var stdProto2 = new com.itwill.StudentProto('17', '단데기', 24, 75, 52);
+	var stdProto3 = new com.itwill.StudentProto('18', '버터플', 124, 65, 63);
+	
+	
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	document.write("<ol>");
+	student1.calculateTot();
+	student2.calculateTot();
+	
+	document.write("<li>"+student1.toString()+"</li>");
+	document.write("<li>"+student2.toString()+"</li>");
+	document.write("<li>-----student.prototype-----</li>");
+	stdProto1.calculateTotJSON();
+	stdProto2.calculateTotJSON();
+	stdProto3.calculateTotJSON();
+	document.write("<li>"+stdProto1.toStringJSON()+"</li>");	
+	document.write("<li>"+stdProto2.toStringJSON()+"</li>");	
+	document.write("<li>"+stdProto3.toStringJSON()+"</li>");	
+
+	
+	
+	document.write("</ol>");
+</script>
+
+</body>
+</html>
+

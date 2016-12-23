@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		변수
+		리터럴(상수)
+	*/
+	var a = '김경호';
+	var b = "김경호";
+	var c = 1235;
+	var d = 123.2312;
+	var e = true;
+	var f = new Object();
+	h = 1 + 2;/* XXXX */
+	
+	var i;			// Boolean(undefined)	-->false
+	var j=null;     // Boolean(null)		-->false
+	var zeroNo=0;   // Boolean(0)  			-->false
+	var zeroStr='0';// Boolean('0')			-->true
+	
+	var strArray=['KIM','LEE','PARK'];
+	
+	/*
+	 data-->boolean converting
+	*/
+	if(!i){
+		alert("i는 "+!i);
+	}
+	
+	if(!j){
+		alert("j는 "+!j);
+	}
+	
+	if(!0){
+		alert("zeroNo는" + zeroNo);
+	}
+	
+	if(zeroStr){
+		alert("zeroStr는"+ zeroStr);
+	}
+	
+	var aTypeStr = typeof a;
+	var bTypeStr = typeof b;
+	var cTypeStr = typeof c;
+	var dTypeStr = typeof d;
+	var eTypeStr = typeof e;
+	var fTypeStr = typeof f;
+	var hTypeStr = typeof h;
+	var iTypeStr = typeof i;
+	var jTypeStr = typeof j;
+	var zeroNoTypeStr = typeof zeroNo;
+	var zeroStrTypeStr = typeof zeroStr;
+	var strArrayTypeStr = typeof strArray;
+	
+	
+</script>
+</head>
+<body>
+<h1>javascript변수</h1><hr/>
+<script type="text/javascript">
+	document.write("a type:"+aTypeStr+"<br/>");
+	document.write("b type:"+bTypeStr+"<br/>");
+	document.write("c type:"+cTypeStr+"<br/>");
+	document.write("d type:"+dTypeStr+"<br/>");
+	document.write("e type:"+eTypeStr+"<br/>");
+	document.write("f type:"+fTypeStr+"<br/>");
+	document.write("h type:"+hTypeStr+"<br/>");
+	document.write("i type:"+iTypeStr+"<br/>");
+	document.write("j type:"+jTypeStr+"<br/>");
+	document.write("zeroNoTypeStr type:"+zeroNoTypeStr+"<br/>");
+	document.write("zeroStrTypeStr type:"+zeroStrTypeStr+"<br/>");
+	document.write("strArrayTypeStr type:"+strArrayTypeStr+"<br/>");
+	
+	if(typeof a == 'string'){
+		alert("string type-->"+a)
+	}
+	if(j==null){
+		alert("j ---> "+j)
+	}
+	if(typeof i=='undefined'){
+		alert("i-->"+i);
+	}
+	if(i==undefined){
+		alert("i-->"+i);
+	}
+	
+</script>
+
+</body>
+</html>

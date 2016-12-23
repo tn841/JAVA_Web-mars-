@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		JSON(JavaScript Object Notation)
+		 - [ , ] ,{ , } , : 
+		  
+	*/
+	
+	var scoreArray=[45,89,55,90,12];
+	var nameArray=['KIM','LEE','PARK','CHOI','SIM'];
+	
+	var resultStr1="";
+	for (var i = 0; i < scoreArray.length; i++) {
+		resultStr1 += scoreArray[i]+" , ";
+	}
+	scoreArray.push(99);
+	nameArray.push('HONG');
+	
+	scoreArray.pop();
+	nameArray.pop();
+	
+	scoreArray.shift();
+	nameArray.shift();
+	
+	scoreArray.unshift(99);
+	nameArray.unshift('SUZI');
+	
+	var resultStr2="";
+	resultStr2 = scoreArray.join(",");
+	var resultStr3="";
+	resultStr3 = nameArray.join(",");
+	
+	function mycompareFunction(a,b){
+		return b-a;
+	}
+	scoreArray.sort(mycompareFunction);
+	nameArray.sort();
+	nameArray.reverse();
+	
+	scoreArray.forEach(function(item,index){
+		alert(index+':'+item);
+	});
+	
+	nameArray.forEach(function(item,index){
+		alert(index+':'+item);
+	});
+</script>
+</head>
+<body>
+<h1>javascript array</h1><hr/>
+<script type="text/javascript">
+	document.write(resultStr1+"<br/>");
+	document.write(resultStr2+"<br/>");
+	document.write(resultStr3+"<br/>");
+	document.write("----sort-----<br/>");
+	document.write(scoreArray.join(",")+"<br/>")
+	document.write(nameArray.join(",")+"<br/>")
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		<< 자바스크립트 객체생성 >>
+		1. JSON 사용( [ , ] , { , }, , ,: )	
+		2. 생성자함수를 사용
+	*/
+	var jsObject1 = {};
+	var jsObject2 =new Object();	
+	/*
+		동적 property(멤버변수) 추가
+	*/
+	jsObject1.id ='guard';
+	jsObject1.name ='KIM';
+	jsObject1.addr ='SEOUL';
+	
+	jsObject2.id='tomato';
+	jsObject2.name='LEE';
+	jsObject2.addr='BUSAN';
+	
+	/*
+		동적 맴버 메소드 추가
+	*/
+	jsObject1.setName = function(str){
+		this.name = str;
+	};
+	
+	jsObject1.getName = function(){
+		return this.name;
+	}
+	
+	jsObject1.toString = function(){
+		return '['+this.id+'] ' + this.name+", " + this.addr;
+	}
+	
+	var studentObj = {
+			id:'twice',
+			name:'KIM',
+			kor:68,
+			eng:98,
+			math:43,
+			tot:0,
+			calculateTo:function(){
+				this.tot = this.kor+this.eng+this.math;
+			},
+			toString:function(){
+				return '['+this.id+'] '+this.name+', '+this.tot;
+			},
+			setId:function(id){
+				this.id = id;
+			}
+	};
+	
+	var jsonTest = {
+			innerObj:{
+				id:"zzzzzzzzzzzzzz",
+				pw:"213123123"
+			}
+	};
+	
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	document.write("<ul>");
+	document.write("<li>-----------객체 기본-----------</li>");
+	document.write("<li>typeof jsObject1 : "+typeof jsObject1+"</li>");
+	document.write("<li>typeof jsObject2 : "+typeof jsObject2+"</li>");
+	document.write("<li>jsObject1.name : "+jsObject1.name+"</li>");
+	document.write("<li>jsObject1.setName('룰류')</li>"); jsObject1.setName('룰류');
+	document.write("<li>jsObject1.getName() : "+jsObject1.getName()+"</li>");
+	document.write("<li>jsObject1.toString() : "+jsObject1.toString()+"</li><br>");
+	document.write("<li>-----------studnetObj-----------</li>");
+	document.write("<li>studnetObj.calculateTo() </li>"); studentObj.calculateTo();
+	document.write("<li>student.toString() : "+studentObj.toString()+"</li>");
+	
+	
+	document.write("</ul>");
+</script>
+
+</body>
+</html>
