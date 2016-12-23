@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{
+		color:pink;
+	}
+	div{
+		font-size: 15pt;
+	}
+	ol{
+		list-style: square;
+	}
+	.myClass{
+		background-color: olive;
+	}
+	#content{
+		background-color: lime;
+		width: 800px;
+		margin: 0px auto 0px auto;
+		text-align: center;
+	}
+	#newsDiv{
+		display: none;
+		text-align: left;
+	}
+	
+</style>
+<script src="js/httpRequest.js"></script>
+<script>
+	function showNewsDiv(){
+		document.getElementById('newsDiv').style.display='block';
+		var element = document.getElementById('newsDiv');
+		var height = element.offsetHeight;
+		console.log(height);
+		
+		/*
+		var id = setInterval(frame, 5);
+	    function frame() {
+	        if (pos == 350) {
+	            clearInterval(id);
+	        } else {
+	            pos++; 
+	            elem.style.top = pos + 'px'; 
+	            elem.style.left = pos + 'px'; 
+	        }
+	    }
+		*/
+		var timer = setInterval(frameFunc, 5);
+		
+		function frameFunc(){
+			if(height){
+				element.setAttribute("style", "height:"+(height++));
+				console.log("확장 시작");
+			}
+		}
+		
+		timer();
+	}
+	function hideNewsDiv(){
+		document.getElementById('newsDiv').style.display='none';		
+	}
+	function getNews(){
+		sendRequest('newsTitlesCSV.jsp', null, newsDisplay, 'GET');
+	}
+	
+	function newsDisplay(){
+		if(httpRequest.readyState != 4){
+			console.log("응답대기중");
+			document.getElementById("newsDiv").innerHTML = '<img src="Loading_icon.gif"/>';
+		}else if(httpRequest.readyState == 4){
+			var newsCSV = httpRequest.responseText;
+			var newsCSVArr = newsCSV.split('#');
+			var newsCount = newsCSVArr[0];
+			console.log('뉴스 갯수 : '+newsCount);
+			if(newsCount==0){
+				return;
+			}
+			var newsContents = newsCSVArr[1];
+			var newsContentArr = newsContents.split('|');
+			var htmlStr = '<ol>';
+			console.log('뉴스 컨텐츠 배열 : '+newsContentArr);
+			for(var i=0; i<newsCount; i++){
+				var newsArr = newsContentArr[i].split(',');
+				htmlStr += '<li>'+newsArr[0]+'&nbsp('+newsArr[1]+')&nbsp&nbsp['+newsArr[2]+']</li>';
+			}
+			htmlStr += '</ol>';
+			
+			document.getElementById("newsDiv").innerHTML = htmlStr;	
+		}
+	}
+</script>
+</head>
+<body class="myClass" onload="getNews(); window.setInterval(getNews, 3000);">
+	<div id="content">
+		<h1 onmouseover="showNewsDiv();" onmouseout="hideNewsDiv();">실시간 뉴스[CSV]</h1>
+		<div id="newsDiv">
+				
+		</div>
+		
+	</div>
+</body>
+</html>

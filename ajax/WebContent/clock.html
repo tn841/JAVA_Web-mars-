@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<title>Insert title here</title>
+<script>
+
+	function sendfunc(){
+		sendRequest("clock.jsp", null, printTime, "GET");
+	}
+	
+	function printTime(){
+		if(httpRequest.readyState == 4){
+			document.getElementById("time").innerHTML = "현재 시각 : "+httpRequest.responseText;
+		}
+	}
+	
+	
+	window.onload = function(){
+		sendfunc();
+		var intervalId =  window.setInterval(sendfunc, 1000);
+		
+		window.setTimeout(function(){
+			window.clearInterval(intervalId);
+		}, 4000);
+	}
+</script>
+</head>
+<body>
+<h1 id='time'></h1><hr>
+</body>
+</html>

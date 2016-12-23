@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.suggest{
+		display: block;
+		border: 1px dotted blue;
+		width: 170px;
+		font-size: 10pt;	
+	}
+</style>
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<script type="text/javascript">
+	function sendKeyword() {
+		var keyword = document.search.keyword.value;
+		if(keyword.trim()==''){
+			return;
+		}
+		var params = 'keyword='+keyword;
+		sendRequest('suggest.jsp', params, displaySuggest, 'GET');
+	}
+	function displaySuggest() {
+		if(httpRequest.readyState==4){
+			/*
+			5|JAVA,JAVAVA,JARA,JIRA,JARA
+			*/
+			var resultCSV = httpRequest.responseText;
+			alert(resultCSV);
+		}
+	}
+
+</script>
+</head>
+<body>
+	<h1>제시어기능구현</h1><hr/>
+	<form action="" name="search"> 
+		<input type="text" name="keyword" onkeyup="sendKeyword()">&nbsp;
+		<input type="submit" value="검색">
+		<div id="suggest" class="suggest">
+			<div id="suggestList">
+				자라<br/>
+				자바<br/>
+				자요<br/>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

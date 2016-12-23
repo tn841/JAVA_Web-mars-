@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/*
+	tag selector(공통속성)
+	*/
+	h1{
+		color: blue;
+		border: 1px dashed red;
+	}
+	div{
+		font-size: 20pt;
+	}
+	ol{
+		list-style: none;
+	}
+	/*
+	class selector(같은 클래스에 적용되는속성)
+	*/
+	.myClass{
+		background-color: yellow;
+		border: 1px solid black;
+	}
+	
+	/*
+	id selector(특정아이디에적용되는속성)
+	*/
+	#content{
+		width: 800px;
+		margin: 20px auto 0px auto;
+		text-align: center;
+		background-color: orange;
+		border: 1px dotted blue;
+	}
+	#newsDiv{
+		display:none;
+		margin: 10px;
+		padding: 10px;
+		background-color: white;
+		border: 1px solid green;
+	}
+	
+</style>
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<script type="text/javascript">
+	function showNewsDiv(){
+		document.getElementById('newsDiv').style.display='block';
+	}
+	function hideNewsDiv(){
+		document.getElementById('newsDiv').style.display='none';
+	}
+	function getNews() {
+		sendRequest('newsTitlesHTML.jsp', null, newsDisplay, 'GET');
+	}
+	function newsDisplay() {
+		if(httpRequest.readyState==4){
+			/*
+			<ol>
+				<li>참으로 수고 많으셨습니다…눈물의 YS 영결식[연합뉴스]2016. 12. 23 오후 4:09:01</li>
+				<li>IS 60개국 테러 위협 영상 공개…한국도 포함 포토[SBS뉴스]2016. 12. 23 오후 4:09:01</li>
+				...
+			</ol>
+			*/
+			var htmlStr = httpRequest.responseText;
+			document.getElementById('newsDiv').innerHTML = htmlStr;
+			showNewsDiv();
+		}
+	}
+	window.onload=function(){
+		//getNews();
+		//setInterval(getNews, 3000);
+	}
+</script>
+</head>
+<body class="myClass">
+	<div id="content">
+		<h1 onmouseover="getNews()" onmouseout="hideNewsDiv()">실시간 뉘우스[HTML]</h1>
+		<div id="newsDiv">
+			news data
+		</div>
+	</div>
+</body>
+</html>

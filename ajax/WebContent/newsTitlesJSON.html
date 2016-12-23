@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/*
+	tag selector(공통속성)
+	*/
+	h1{
+		color: blue;
+		border: 1px dashed red;
+	}
+	div{
+		font-size: 20pt;
+	}
+	ol{
+		list-style: none;
+	}
+	/*
+	class selector(같은 클래스에 적용되는속성)
+	*/
+	.myClass{
+		background-color: yellow;
+		border: 1px solid black;
+	}
+	
+	/*
+	id selector(특정아이디에적용되는속성)
+	*/
+	#content{
+		width: 800px;
+		margin: 20px auto 0px auto;
+		text-align: center;
+		background-color: orange;
+		border: 1px dotted blue;
+	}
+	#newsDiv{
+		display:none;
+		margin: 10px;
+		padding: 10px;
+		background-color: white;
+		border: 1px solid green;
+	}
+	
+</style>
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<script type="text/javascript">
+	function showNewsDiv(){
+		document.getElementById('newsDiv').style.display='block';
+	}
+	function hideNewsDiv(){
+		document.getElementById('newsDiv').style.display='none';
+	}
+	function getNews() {
+		sendRequest('newsTitlesJSON.jsp', null, newsDisplay, 'GET');
+	}
+	function newsDisplay() {
+		if(httpRequest.readyState==4){
+			/*
+			{
+				count: 9,
+				data: [
+						{
+							newsTitle: "참으로 수고 많으셨습니다…눈물의 YS 영결식",
+							company: "연합뉴스",
+							date: "2016. 12. 23 오후 3:42:45"
+						},
+						{
+							newsTitle: "IS 60개국 테러 위협 영상 공개…한국도 포함 포토",
+							company: "SBS뉴스",
+							date: "2016. 12. 23 오후 3:44:41"	
+						}
+					
+				      ]
+			}
+			*/
+			
+			
+			
+			var JSONStr = httpRequest.responseText;
+			
+			/*
+				JSON.parse('text')
+				 - text data를 자바스크립트엔진에게 파싱해서 
+				   JSON객체로 생성
+				   
+			*/
+			var JSONObject = JSON.parse(JSONStr);
+			
+			if(JSONObject.count==0){
+				return;
+			}
+			var newsJSONArray=JSONObject.data;
+			var htmlStr="<ol>";
+			for (var i = 0; i < newsJSONArray.length; i++) {
+				/*
+				{
+					newsTitle: "참으로 수고 많으셨습니다…눈물의 YS 영결식",
+					company: "연합뉴스",
+					date: "2016. 12. 23 오후 3:42:45"
+				}
+				*/
+				var newsJSONObject = newsJSONArray[i];
+				htmlStr +='<li>'+newsJSONObject.newsTitle+
+				         	'['+newsJSONObject.company+']'+
+				         	newsJSONObject.date+
+				          '</li>';
+			}
+			htmlStr+="</ol>";
+			
+			document.getElementById('newsDiv').innerHTML = htmlStr;
+			showNewsDiv();
+		}
+	}
+	window.onload=function(){
+		//getNews();
+		//setInterval(getNews, 3000);
+	}
+</script>
+</head>
+<body class="myClass">
+	<div id="content">
+		<h1 onmouseover="getNews()" onmouseout="hideNewsDiv()">실시간 뉘우스[JSON]</h1>
+		<div id="newsDiv">
+			news data
+		</div>
+	</div>
+</body>
+</html>

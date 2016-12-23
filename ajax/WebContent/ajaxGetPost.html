@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr=null;
+	function ajaxRequestGet(){
+		var id = document.getF.id.value;
+		if(id.trim()==''){
+			var spanE=document.getElementById("getResultSpan");
+			spanE.innerHTML='';
+			spanE.style.border='';
+			return;
+		}
+		var param='?id='+id;
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getResultDisplay;
+		xhr.open('GET', 'ajaxGetPost.jsp'+param, true);
+		xhr.send(null);
+	}
+	
+	function getResultDisplay(){
+		if(xhr.readyState==0||
+		  xhr.readyState==1||
+		  xhr.readyState==2||
+		  xhr.readyState==3){
+			//loading
+			var spanE=document.getElementById("getResultSpan");
+			spanE.style.border='';
+			spanE.innerHTML="<image src='Loading_icon.gif'/>";
+		}else if(xhr.readyState==4){
+			//data complete
+			var responseData = xhr.responseText;
+			var spanE=document.getElementById("getResultSpan");
+			spanE.style.border='1px solid red';
+			spanE.innerHTML=responseData;
+		}
+	}
+	
+	function ajaxRequestPost(){
+		var id = document.postF.id.value;
+		if(id.trim()==''){
+			var spanE=document.getElementById("postResultSpan");
+			spanE.innerHTML='';
+			spanE.style.border='';
+			return;
+		}
+		var param='id='+id;
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=postResultDisplay;
+		xhr.open('POST', 'ajaxGetPost.jsp', true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		
+		xhr.send(param);
+	}
+	
+	function postResultDisplay(){
+		if(xhr.readyState==0||
+		  xhr.readyState==1||
+		  xhr.readyState==2||
+		  xhr.readyState==3){
+			//loading
+			var spanE=document.getElementById("postResultSpan");
+			spanE.style.border='';
+			spanE.innerHTML="<image src='Loading_icon.gif'/>";
+		}else if(xhr.readyState==4){
+			//data complete
+			var responseData = xhr.responseText;
+			var spanE=document.getElementById("postResultSpan");
+			spanE.style.border='1px solid blue';
+			spanE.innerHTML=responseData;
+		}
+	}
+</script>
+</head>
+<body>
+<h1>ajax get,post 방식의 요청</h1><hr/>
+<form name="getF">
+	아이디[GET]<input type="text" name="id" onkeyup="ajaxRequestGet();">
+	<span id="getResultSpan" style=""></span>
+</form>
+<form name="postF">
+	아이디[POST]<input type="text" name="id" onkeyup="ajaxRequestPost()">
+	<span id="postResultSpan"></span>
+</form>
+</body>
+</html>

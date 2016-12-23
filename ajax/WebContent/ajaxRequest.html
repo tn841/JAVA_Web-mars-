@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	span{
+		border-style:dotted;
+		border-color:blue;
+		border-width: thin;
+	}
+</style>
+<script>
+	var xhr = null;
+	function ajaxRequest() {
+		//1.XMLHttpRequest 객체 생성
+    	xhr = new XMLHttpRequest();
+    	
+    	//2.요청설정
+    	xhr.onreadystatechange=responseCallback;
+    	xhr.open("GET", "ajaxRequest.jsp?id="+f.id.value, "false");
+    	
+    	//3.요청
+    	xhr.send(null);
+ 		
+    	
+	}
+	
+	function responseCallback() {
+		//alert("응답이 도착했을 때 실행되는 callback function()")
+		if(xhr.readyState == 4){
+			var responseText = xhr.responseText;
+			var span= document.getElementById("info");
+			var body = document.getElementById("body");
+			body.setAttribute("style","background-color:none;");
+			span.innerHTML = responseText;
+			//alert(responseText);
+		}else{
+			var span= document.getElementById("info");
+			var body = document.getElementById("body");
+			body.setAttribute("style","background-color:pink;");
+			span.innerHTML = "<img src='Loading_icon.gif'/>";
+		}
+	}
+</script>
+</head>
+<body id="body" >
+<h1>ajax 기반요청</h1><hr/>
+<form name="f">
+	아이디:<input type="text" name="id" onkeyup="ajaxRequest()"><span id="info"></span>
+	<input type="button" value="ajax request" onclick="ajaxRequest()">
+</form>	
+</body>
+</html>
