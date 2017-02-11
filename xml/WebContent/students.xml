@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student id="a01">
+		<name nickname="전기쥐">피카츄</name>
+		<age>24</age>
+		<address>서울시 강남구</address>
+		<gender value="1"/>
+		<![CDATA[
+			1993년 <<풀숲에서 피츄로 출생>>
+			2003년 <<피카츄로 진화>>
+			2005년 <<지우와 만남>>
+		]]>
+	</student>
+	<student id="a02">
+		<name nickname="불용">파이리</name>
+		<age>19</age>
+		<address>백두산</address>
+		<gender value="2"/>
+	</student>
+</students>
