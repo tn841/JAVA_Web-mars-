@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>툴바와 아이콘 예제</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+        <style>
+            /* 영화 리뷰 컨텐츠를 꾸밈 */
+            .ui-li-desc {
+                white-space: normal;
+                margin-right: 20px;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page">
+            <div data-role="header">
+                <h1>영화 리뷰</h1>
+            </div>
+
+            <div data-role="content">
+                <ul data-role="listview" data-inset="true" data-theme="e">
+                    <li data-role="list-divider">
+                        엑스맨
+                        <p class="ui-li-aside">
+                            평가자 수: <em>1,588</em>
+                        </p>
+                    </li>
+                    <li>
+                        <img src="../images/thumbs-up.png" class="ui-li-icon">
+                        <p>
+                            추천합니다! 이 영화 캐스팅이 너무 잘 됐고, 특수효과는 정말 놀랍네요. 관람료가 아깝지 않네요.
+                        </p>
+                    </li>
+                </ul>
+
+                <ul data-role="listview" data-inset="true" data-theme="e">
+                    <li data-role="list-divider">
+                        답글</p>
+                    </li>
+                    <li>
+                        <img src="../images/111-user.png" class="ui-li-icon">
+                        <p>
+                            리뷰 고맙습니다. 이번 주에 관람할 예정이에요.
+                        </p>
+                        <span class="ui-li-count">1일 전</span>
+                    </li>
+                    <li>
+                        <img src="../images/111-user.png" class="ui-li-icon">
+                        <p>
+                            올려준 리뷰가 정말 도움이 됐어요. 그런데, 다른 영화 해리포터를 보기 위해서
+                            이번영화는 안 보기로 했어요!
+                        </p>
+                        <span class="ui-li-count">3일 전</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 툴바와 아이콘 -->
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#" data-icon="arrow-l"></a>
+                        </li>
+                        <li>
+                            <a href="#" data-icon="back"></a>
+                        </li>
+                        <li>
+                            <a href="#" data-icon="star"></a>
+                        </li>
+                        <li>
+                            <a href="#" data-icon="plus"></a>
+                        </li>
+                        <li>
+                            <a href="#" data-icon="arrow-r"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+

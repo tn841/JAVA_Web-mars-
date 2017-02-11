@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Application</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <style>
+        .item  { width:100px; height:100px; background:orange; }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script>
+        $(document).bind('pageinit', function () {
+            $('.item').bind('vmousedown', function (event) {
+                var output = '';
+                output += '<p>event.pageX: ' + event.pageX + '</p>';
+                output += '<p>event.pageY: ' + event.pageY + '</p>';
+                output += '<p>event.screenX: ' + event.screenX + '</p>';
+                output += '<p>event.screenY: ' + event.screenY + '</p>';
+                output += '<p>event.clientX: ' + event.clientX + '</p>';
+                output += '<p>event.clientY: ' + event.clientY + '</p>';
+                $('#output').html(output);
+            });
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head>
+<body>
+    <div class="item"></div>
+    <div id="output">
+    
+    </div>
+</body>
+</html>

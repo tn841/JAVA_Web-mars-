@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="home">
+            <div data-role="header">
+                <h1>대화상자예제</h1>
+            </div>
+            <div data-role="content">
+                <a  href="#term" data-transition="slideup">이용약관</a>
+            </div>
+            <div data-role="footer">@Copyright</div>
+        </div>
+        <div data-role="dialog" id="term">
+            <div data-role="header">
+                <h1>이용약관</h1>
+            </div>
+            <div data-role="content" data-theme="b">
+                서비스이용약관에동의하십니까?
+                <br/>
+                <br/>
+                <a href="javascript:alert('동의해주세요.');" data-role="button" data-theme="c" >동의안함</a>
+                <a href="javascript:agree();" data-role="button" data-theme="c" >동의함</a>
+            </div>
+            <script type="text/javascript" charset="utf-8">
+                function agree() {
+                    alert('동의해주셔서 ㄳ');
+                    //동의한이후 작업처리
+                    $('#term').dialog('close');
+                }
+
+            </script>
+        </div>
+    </body>
+
+</html>

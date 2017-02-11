@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>jMovies</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" /> 
+	<style>
+		/* 중간 아이콘 */
+		.ui-grid-a { text-align: center; }
+		
+		/* 줄(row) 높이 설정 */
+		.ui-block-a, .ui-block-b { height: 100px; position: relative; }
+		
+		/* 레이블 색상, 크기 설정 */
+		.icon-label { color: #FFF; display: block; font-size:12px; }
+		
+		/* 아이콘 위치 조절 */
+		.icon-springboard { position: absolute; bottom: 0; width: 100%; }
+		
+		a:link,	a:visited, a:hover, a:active { text-decoration:none; }
+		
+		
+		
+		
+	</style>
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="home" style="background:grey;">
+	<div data-role="header" data-theme="b">
+		<h1>jMovies</h1>
+	</div>
+
+	<div data-role="content" >
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+			  	<div class="icon-springboard">
+			   		<a href="#">
+				  		<img src="../images/45-movie-1-lg.png" alt="현재 상영중">
+				  		<span class="icon-label">현재 상영중</span>
+			    	</a>
+			  	</div>
+			</div>	
+			
+			<div class="ui-block-b">
+			   	<div class="icon-springboard">	
+				 	<a href="#">
+				  		<img src="../images/12-eye-lg.png" alt="개봉예정">
+						<span class="icon-label">개봉예정</span>
+				  	</a>
+			  	</div>
+			</div>
+			
+			<div class="ui-block-a">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="#">
+						<img src="../images/15-tags-lg.png" alt="티켓">
+						<span class="icon-label">티켓</span>
+			  		</a>	
+			  	</div>
+			</div>	
+			
+			<div class="ui-block-b">
+			  	<div style="position: absolute; bottom: 0; width:100%;">
+			  		<a href="../ch4/contact-us.html">
+						<img src="../images/112-group-lg.png" alt="연락처">
+						<span class="icon-label">연락처</span>
+			  		</a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>버튼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page">
+            <div data-role="header">
+                <h1>폼 버튼</h1>
+            </div>
+
+            <div data-role="content">
+                <em>&lt;button&gt;버튼 엘리먼트&lt;/button&gt;</em>
+                <button data-theme="b">
+                    버튼 엘리먼트
+                </button>
+                <br>
+                <em>&lt;input type="button" value="입력 버튼" /&gt;</em>
+                <br>
+                <em>&lt;input type="submit" value="보내기 버튼" /&gt;</em>
+                <br>
+                <em>&lt;input type="reset" value="초기화 버튼" /&gt;</em>
+                <input type="button" value="입력 버튼" data-theme="a" data-inline="true"/>
+                <input type="submit" value="보내기 버튼" data-theme="a" data-inline="true"/>
+                <input type="reset" value="초기화 버튼" data-theme="a" data-inline="true"/>
+                <!--enhance금지-->
+                <input type="button" data-role="none" value="입력 버튼" data-theme="a" />
+
+            </div>
+        </div>
+
+    </body>
+</html>
+

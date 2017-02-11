@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Forms</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+        <style>
+            .ui-controlgroup-horizontal .ui-radio label {
+                /* 줄바꿈 방지를 위해 폰트 크기 줄임 */
+                font-size: 13px !important;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page">
+            <div data-role="header">
+                <h1>라디오 버튼</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="test" id="test" action="#" method="post">
+
+                    <fieldset data-role="controlgroup">
+                        <legend>
+                            지도 보기:
+                        </legend>
+                        <input type="radio" name="map" id="map1" value="Map" checked="checked" />
+                        <label for="map1" data-theme="a">지도</label>
+
+                        <input type="radio" name="map" id="map2" value="Satellite"  />
+                        <label for="map2" data-theme="a">위성</label>
+
+                        <input type="radio" name="map" id="map3" value="Hybrid"  />
+                        <label for="map3" data-theme="a">하이브리드</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>
+                            지도 보기:
+                        </legend>
+                        <input type="radio" name="map" id="map4" value="Map" checked="checked" />
+                        <label for="map4">지도</label>
+
+                        <input type="radio" name="map" id="map5" value="Satellite" />
+                        <label for="map5">위성</label>
+
+                        <input type="radio" name="map" id="map6" value="Hybrid"  />
+                        <label for="map6">하이브리드</label>
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+	
+    </body>
+</html>
+

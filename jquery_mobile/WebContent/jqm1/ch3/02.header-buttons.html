@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>헤더 예제</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" data-theme="c">
+            <div data-role="header">
+                <a href="#" data-icon="delete">취소</a>
+                <h1>리뷰 추가</h1>
+                <a href="#" data-icon="check">완료</a>
+            </div>
+
+            <div data-role="content">
+                <fieldset data-role="controlgroup" data-theme="c">
+                    <legend>
+                        추천:
+                    </legend>
+                    <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" data-theme="c"/>
+                    <label for="radio-choice-1">추천합니다!</label>
+
+                    <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" data-theme="c" />
+                    <label for="radio-choice-2">추천하지 않습니다</label>
+                    <br>
+
+                    <label for="comments">추천평:</label>
+                    <textarea cols="40" rows="8" name="comments" id="comments" data-theme="d"></textarea>
+                </fieldset>
+
+            </div>
+        </div>
+
+    </body>
+</html>
+

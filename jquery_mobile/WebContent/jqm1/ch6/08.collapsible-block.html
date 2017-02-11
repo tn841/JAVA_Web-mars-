@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>접이식 블럭 예제</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" id="home" data-theme="b">
+            <div data-role="header" data-theme="a">
+                <h1>설정</h1>
+            </div>
+
+            <div data-role="content">
+
+                <div data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="b">
+                    <h3>Wireless</h3>
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a href="#">&#xe117; 알림</a>
+                        </li>
+                        <li>
+                            <a href="#">&#xe01d; 위치 서비스</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible" data-theme="a" data-content-theme="b">
+                    <h3>응용프로그램</h3>
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a href="#">&#xe001; Faceoff</a>
+                        </li>
+                        <li>
+                            <a href="#">&#xe428; LinkedOut</a>
+                        </li>
+                        <li>
+                            <a href="#">&#xe03d; Netflicks</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b">
+                    <h3>디스플레이</h3>
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a href="#">밝기</a>
+                        </li>
+                        <li>
+                            <a href="#">자동회전 스크린</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b">
+                    <h3>사운드</h3>
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a href="#">사운드 프로파일</a>
+                        </li>
+                        <li>
+                            <a href="#">볼륨</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b">
+                    <h3>보안</h3>
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a href="#">스크린 잠금 설정</a>
+                        </li>
+                        <li>
+                            <a href="#">비밀번호 보이기</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

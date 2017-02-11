@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>버튼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+            	$('#create-button1').on('click', function(){
+            		$("<a id='btn1' data-icon='star'>버튼1</a>")
+            		.appendTo("[data-role='content']")
+            		.button({
+            			corners:true,
+            			theme:'c',
+            			inline:true,
+            			enhanced: false,
+            			create:function(){
+            				
+            			}
+            		});
+            	});
+            	
+            	$('#create-button1').on('click', function(){
+            		$("<a id='btn1' class='btn1' data-role='button' data-icon='star'>버튼1</a>")
+            		.insertAfter('#create-button1')
+            		.button({
+            			corners:true,
+            			icon:'minus',
+            			theme:'b',
+            			inline:true,
+            			create:function(){
+            				
+            			}
+            		});
+            	});
+            	
+            	$('#enable-button2').click(function(){
+            		$('.btn1').button('enable');
+            	});
+            	$('#disable-button2').click(function(){
+            		$('.btn1').button('disable');
+            	});
+            	
+            	
+            	
+            	
+            });
+                  
+        </script>
+        
+    </head>
+    <body>
+
+        <div data-role="page" data-theme="a">
+            <div data-role="header">
+                <h1>동적인 버튼</h1>
+            </div>
+            <div data-role="content">
+                <a href="#" data-role="button" id="create-button1">버튼1 생성</a>
+                <a href="#" data-role="button" id="create-button2">버튼2 생성</a>
+
+                <br>
+                <br>
+                <a href="#" data-role="button" id="create-multiple-buttons">다중 버튼 생성</a>
+                <a href="#" data-role="button" id="create-button5">버튼5 생성</a>
+                <a href="#" data-role="button" id="create-button6">버튼6 생성</a>
+                <a href="#" data-role="button" id="disable-button2" data-theme="a">버튼2 비활성화</a>
+                <a href="#" data-role="button" id="enable-button2" data-theme="a">버튼2 활성화</a>
+            </div>
+
+           
+        </div>
+
+    </body>
+</html>
+

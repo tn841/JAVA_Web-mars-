@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>스프링보드 예제</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" /> 
+	<style>
+		/* 중간 아이콘 */
+		.ui-grid-a { text-align: center; }
+		
+		/* 줄(row) 높이 설정 */
+		.ui-block-a, .ui-block-b { height: 100px; }
+		
+		/* 레이블 색상, 크기 설정 */
+		.icon-label { color: #000; display: block; font-size:12px; }
+		a:link,	a:visited, a:hover, a:active { text-decoration:none; }
+		
+
+	</style>
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="home" data-theme="d" class="background-gradient">
+	<div data-role="header" data-theme="b">
+		<h1>스프링보드</h1>
+	</div>
+
+	<div data-role="content">
+		<div class="ui-grid-a"> 
+			<div class="ui-block-a">
+		   		<a href="#">
+			  		<img src="../images/cloud-default.png" height="57" width="57">
+			  		<span class="icon-label">앱 A</span>
+		    	</a>
+			</div>
+			<div class="ui-block-b">
+		   		<a href="#">
+			  		<img src="../images/cloud-bright.png" height="57" width="57">
+			  		<span class="icon-label">앱 B</span>
+		    	</a>
+			</div>
+			<div class="ui-block-a">
+		   		<a href="#">
+			  		<img src="../images/cloud-ripple.png" height="57" width="57">
+			  		<span class="icon-label">앱 C</span>
+		    	</a>
+			</div>	
+			<div class="ui-block-b">
+		   		<a href="#">
+			  		<img src="../images/cloud-sparkle.png" height="57" width="57">
+			  		<span class="icon-label">앱 D</span>
+		    	</a>
+			</div>	
+		</div>
+	</div>
+</div>
+</body>
+</html>
+

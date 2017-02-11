@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>점진적 개선 예제</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" /> 
+	<style>
+		.ui-header .ui-title, .ui-footer .ui-title { margin-right: 0 !important; margin-left: 50 !important; }
+	</style>	
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+	</head> 
+<body> 
+
+<div data-role="page" data-theme="c">
+	<div  data-role="header">
+		<h1>점진적 개선</h1>
+	</div>
+
+	<div data-role="content">
+		
+		<label for="slider">스위치:</label>
+		<select name="slider" id="slider" data-role="slider">
+			<option value="off">Off</option>
+			<option value="on">On</option>
+		</select> 
+		<br><br>	
+	
+		<label for="slider">슬라이더:</label>
+	 	<input type="range" name="slider" id="slider" value="0" min="0" max="100"  />
+		<br><br>
+		
+		<a href="#" data-role="button" data-theme="b">보내기</a>
+	</div>
+</div>
+</body>
+</html>
+

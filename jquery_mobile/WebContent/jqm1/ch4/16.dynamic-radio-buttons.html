@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>폼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" data-theme="b">
+            <div data-role="header">
+                <h1>라디오 버튼</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="test" action="#" method="post">
+                    <a href="#" id="create-radio1" data-role="button">라디오버튼1 생성</a>
+                    <a href="#" id="create-radio2" data-role="button">라디오버튼2 생성</a>
+                    <br>
+
+                    <p style="text-align:center;">
+                        <strong>메서드 호출:</strong>
+                    </p>
+                    <a href="#" id="auto" data-role="button" data-theme="a">위성 선택</a>
+                    <a href="#" id="disable" data-role="button" data-theme="a">위성 비활성화</a>
+                    <a href="#" id="enable" data-role="button" data-theme="a">위성 활성화</a>
+                </form>
+            </div>
+            <script type="text/javascript">
+                $(function(){
+                	$('#create-radio1').click(function(){
+                		$("<fieldset data-role='controlgroup'>"+
+                			"<legend>지도 보기:</legend>"+
+                			'<input type="radio" name="map" id="map1" value="Map" checked="checked" />'+
+                			'<label for="map1" data-theme="a">지도</label>'+
+                        	'<input type="radio" name="map" id="map2" value="Satellite"  />'+
+                        	'<label for="map2" data-theme="a">위성</label>'+
+	                        '<input type="radio" name="map" id="map3" value="Hybrid"  />'+
+                        	'<label for="map3" data-theme="a">하이브리드</label>'+
+                		+"</fieldset>").insertAfter('#create-radio1').enhanceWithin();
+                		console.log('creaet!');
+                		//$('#map1').checkboxradio();	//개별적인 enhance 작업이 필요.. 해결방안은 ↓
+                		//$.mobile.pageContainer.enhanceWithin();	//page전체 향상
+                		//$('form').enhanceWithin();	//특정 요소 하위들 모두 향상
+                	});//create-radio1.click
+                	
+                	$('#auto').click(function(){
+                		$('#map2')[0].checked = true;
+                		$('#map1').checkboxradio('refresh');
+                		$('#map2').checkboxradio('refresh');
+                		$('#map3').checkboxradio('refresh');
+                		//$('form').enhanceWithin();
+                			
+                	});
+                	
+                	//
+                	
+                	
+                });
+            </script>
+        </div>
+
+    </body>
+</html>
+

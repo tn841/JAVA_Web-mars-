@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>목록</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" data-theme="a">
+            <div data-role="header">
+                <h1>동적인 리스트</h1>
+            </div>
+
+            <div data-role="content">
+                <a href="#" id="create-list1" data-role="button">list1 생성</a>
+                <a href="#" id="create-list2" data-role="button">list2 생성</a>
+                <br>
+                <a href="#" id="update-list1" data-role="button" data-theme="a">목록1 업데이트</a>
+            </div>
+            <script type="text/javascript">
+            
+            $(function(){
+            	
+            		$('#update-list1').click(function(){
+	               		$('#list1')
+	               			.append("<li><a href='#'>드라마</a></li>");
+	               		$('#list1').listview("refresh");
+	               	});
+            	
+            	$('#create-list1').click(function(){
+            		$("<ul id='list1'>"+
+            			"<li data-role='list-divider' >장르</li>"+
+            			"<li ><a href='#'>액션</a></li>"+
+            			"<li><a href='#'>로멘스</a></li>"+
+            			"<li><a href='#'>코미디</a></li>"+
+            		+"</ul>").insertAfter('#create-list1').listview({
+            			theme:'a',
+            			dividerTheme:'b',
+            			inset:true,
+            			create:function(){
+            				console.log("create!!");
+            			}
+            		});
+            	});
+            });
+                  
+                
+                
+            </script>
+        </div>
+
+    </body>
+</html>
+

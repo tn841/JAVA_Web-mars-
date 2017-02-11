@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>폼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" data-theme="b">
+            <div data-role="header">
+                <h1>텍스트 입력</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="test" action="#" method="post">
+                    <a href="#" data-role="button" id="create-text1">텍스트 입력1 생성</a>
+                    <a href="#" data-role="button" id="create-text2">텍스트 입력2 생성</a>
+                    <br>
+                    <br>
+                    <a href="#" data-role="button" id="disable-text1" data-theme="a">텍스트 입력1 비활성화</a>
+                    <a href="#" data-role="button" id="enable-text1" data-theme="a">텍스트 입력1 활성화</a>
+                </form>
+            </div>
+            <script type="text/javascript">
+                $('#create-text1').click(function(){
+                    $("<input type='text' id='text1'/>")
+                        .insertAfter('#create-text1')
+                        .textinput({
+                            create:function(event){
+                                alert('text create!!!!');
+                                event.target.value='text 생성';
+                            }
+                        });
+                });
+                $('#disable-text1').click(function(){
+                    $('#text1').textinput('disable');
+                });
+                $('#enable-text1').click(function(){
+                    $('#text1').textinput('enable');
+                    
+                });
+            </script>
+        </div>
+
+    </body>
+</html>
+

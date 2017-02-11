@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Desktop</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    <style>
+        div#testMe {width:50%; margin:1em auto; height:10em; background:#eee; border:2px solid #000;}
+    </style>
+</head>
+<body>
+    <section id="page1" data-role="page">
+        <header data-role="header"><h1>jQuery Mobile Test</h1></header>
+    </section>
+    <script>
+        var $t = $('#page1');
+        $t.bind('tap', function () {
+            alert('tap!')
+        })
+        .bind('taphold', function () {
+            alert('taphold!')
+        })
+        .bind('swipe', function () {
+            alert('swipe!')
+        })
+        .bind('swiperight', function () {
+            alert('swiperight!')
+        })
+        .bind('swipeleft', function () {
+            alert('swipeleft!')
+        });
+        console.log($.event.special.swipe.verticalDistanceThreshold);
+    </script>
+</body>
+</html>

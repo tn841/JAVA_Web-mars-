@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>폼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" data-theme="b">
+            <div data-role="header">
+                <h1>선택 메뉴</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="test" id="test" action="#" method="post">
+
+                    <p>
+                        <label for="genre">장르:</label>
+                        <select name="genre" id="genre" data-native-menu="false">
+                            <option value="action">액션</option>
+                            <option value="comedy">코메디</option>
+                            <option value="drama">드라마</option>
+                            <option value="romance">로맨스</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="delivery">티켓 배송:</label>
+                        <select name="delivery" id="delivery">
+                            <optgroup label="Digital">
+                                <option value="barcode">E-Ticket</option>
+                                <option value="nfc">NFC</option>
+                            </optgroup>
+                            <optgroup label="페덱스">
+                                <option value="overnight">야간배송</option>
+                                <option value="express">특급배송</option>
+                                <option value="ground">일반배송</option>
+                            </optgroup>
+                            <optgroup label="우체국택배">
+                                <option value="overnight">야간배송</option>
+                                <option value="express">특급배송</option>
+                                <option value="standard">일반배송</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>
+

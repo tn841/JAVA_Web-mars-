@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Application</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    <script>
+        (function ($) {
+            var methods = {
+                init: function (options) {
+                    var settings = {
+                        callback: function () { }
+                    };
+                    if (options) {
+                        $.extend(settings, options);
+                    }
+                    // Select all of the pages and then attach the event listeners
+                    // 페이지 전체를 선택해서 이벤트 리스너를 등록합니다.
+                    $(":jqmData(role='page')").each(function () {
+                        $(this).bind("swipeleft", function () {
+                            // Get the current page number from the id and increment it by 1.
+                            // 현재 페이지의 id 에서 페이지 번호를 알아낸 다음 1을 더합니다.
+                            var nextPage = parseInt($(this).attr("id").split("page")[1]) + 1;
+                            if (nextPage === 4) nextPage = 1;
+                            // Transition the page.
+                            // 페이지를 전환합니다.
+                            $.mobile.changePage("#page" + nextPage, "slide");
+                        });
+
+                        $(this).bind("swiperight", function () {
+                            // Get the current page number from the id and decrement it by 1.
+                            // 현재 페이지의 id 에서 페이지 번호를 알아낸 다음 1을 뺍니다.
+                            var nextPage = parseInt($(this).attr("id").split("page")[1]) - 1;
+                            if (nextPage === 0) nextPage = 3;
+                            // Transition the page.
+                            // 페이지를 전환합니다.
+                            $.mobile.changePage("#page" + nextPage, "slide", true);
+                        });
+                    });
+                }
+            }
+            $.fn.initApp = function (method) {
+                // Method calling logic
+                // 메서드 호출
+                if (methods[method]) {
+                    return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+                } else if (typeof method === 'object' || !method) {
+                    return methods.init.apply(this, arguments);
+                } else {
+                    $.error('Method ' + method + ' does not exist');
+                }
+            }
+        })(jQuery);
+
+        $(document).ready(function () {
+            $().initApp();
+        });
+    </script>
+</head>
+<body>
+    <!-- begin first page -->
+    <section id="page1" data-role="page">
+        <header data-role="header"><h1>jQuery Mobile</h1></header>
+        <div data-role="content" class="content">
+            <p>First page!</p>
+        </div>
+        <footer data-role="footer"><h1>O'Reilly</h1></footer>
+    </section>
+    <!-- end first page -->
+    <!-- Begin second page -->
+    <section id="page2" data-role="page">
+        <header data-role="header"><h1>jQuery Mobile</h1></header>
+        <div data-role="content" class="content">
+            <p>Second page!</p>
+        </div>
+        <footer data-role="footer"r><h1>O'Reilly</h1></footer>
+    </section>
+    <!-- end second page -->
+    <!-- begin third page -->
+    <section id="page3" data-role="page">
+        <header data-role="header"><h1>jQuery Mobile</h1></header>
+        <div data-role="content" class="content">
+            <p>Third page!</p>
+        </div>
+        <footer data-role="footer"><h1>O'Reilly</h1></footer>
+    </section>
+    <!-- end third page -->
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>리스트 필터</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" /> 
+	<style>
+		.segmented-control { text-align:center;}
+		.segmented-control .ui-controlgroup { margin: 0.2em; }
+		.ui-control-active, .ui-control-inactive { border-style: solid; border-color: gray; }
+		.ui-control-active { background: #BBB; }
+		.ui-control-inactive { background: #DDD; }
+	</style>
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script>
+		$(document).bind('mobileinit',function(){
+		    alert('mobileinit'); 
+		 	// 전역적으로 검색 필터 플레이스 홀더 텍스르를 설정
+			//$.mobile.listview.prototype.options.filterPlaceholder = "meeeeee meeeeeeeeeeeeee..."; 
+			
+			//$.mobile.listview.prototype.options.filterCallback = function( text, searchValue ){
+			//	return !(text.indexOf( searchValue ) === 0);
+			//};	
+		});
+		
+		// 페이지가 로딩될 때 사용자 검색 구성
+		
+		$('#calendar-page').live("pagebeforeshow", function(){
+		  $("#calendar-list").listview('option', 'filterCallback', 
+				function( text, searchValue ){
+				    console.log(text+", "+searchValue);
+					return !(text.toLowerCase().indexOf( searchValue ) > 0);
+				}
+			);
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="calendar-page">
+	<div data-role="header">
+		<h1>달력</h1>
+	</div>
+
+	<div data-role="content">
+		<ul data-role="listview" id="calendar-list" data-filter="true" >
+			<li data-role="list-divider">월 <p class="ui-li-aside"><strong>2012/2/6</strong></p></li>
+			<li><a href="#"><p><strong>6</strong> PM<span class="ui-li-aside"><strong>생일 파티</strong></span></p></a></li>
+			<li data-role="list-divider">수 <p class="ui-li-aside"><strong>2012/2/8</strong></p></li>
+			<li><a href="#"><p><strong>6</strong> PM<span class="ui-li-aside"><strong>우저 그룹 미팅</strong></span></p></a></li>
+			<li data-role="list-divider">금 <p class="ui-li-aside"><strong>2012/2/10</strong></p></li>
+			<li><a href="#"><p><strong>2</strong> PM<span class="ui-li-aside"><strong>스키 레슨</strong></span></p></a></li>				
+			<li><a href="#"><p><strong>5</strong> PM<span class="ui-li-aside"><strong>팀 회식!</strong></span></p></a></li>	
+		</ul>
+	</div>
+			
+	<!-- 툴바와 세그먼트 컬트롤 -->
+	<div data-role="footer" data-position="fixed" data-theme="d" class="segmented-control">
+		<div data-role="controlgroup" data-type="horizontal">
+			<a href="#" data-role="button" class="ui-control-active">목록</a>
+			<a href="#" data-role="button" class="ui-control-inactive">일</a>
+			<a href="#" data-role="button" class="ui-control-inactive">월</a>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

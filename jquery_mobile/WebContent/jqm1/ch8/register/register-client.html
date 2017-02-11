@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>등록</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="register.css" />
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="register.js"></script>
+	
+    <script type="text/javascript" charset="utf-8">
+        /*
+         http://localhost:81/jqm-webapp/rest/register?email=joe@company.com
+         jsoncallBack({email:'guard88@naver.com'});
+         */
+	    $(document).on('pagecreate', '#registrationPage', function(){
+	    	$('#register').submit(function(e){
+	    		$.mobile.loading('show');
+	    		$.ajax({
+	    			url:'http://192.168.12.12:81/jqm-webapp/rest/register',
+	    			dataType:'jsonp',
+	    			//jsonpCallback:'tttttttt',
+	    			data:$('#register').serialize(),
+	    			success:function(responseData){
+	    				console.log(responseData);
+	    				
+	    				$.mobile.pageContainer.pagecontainer('change',
+	    													'register-thanks.html',
+	    													{data:{email:responseData.email}});
+	    			},
+	    			error:function(e){
+	    				console.log(e);
+	    			}
+	    		});
+	    		e.preventDefault();
+	    	});
+	    });
+	    
+	    
+		$('#thanksPage').on('pagebeforecreate', function(){
+					alert(url);
+				});
+		
+	    
+	
+		/*
+		$(document).on('pagebeforecreate', '#thanksPage', function(){
+						  var url = $(this).jqmData('url');
+						  alert(url);
+						  var email=url.substring(url.indexOf('?')+1);
+						  email=email.substring(email.indexOf('=')+1);
+						  $('.email').append(email);
+						  $.mobile.loading('hide');
+					  });*/
+		
+	  
+        
+    </script>
+    
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="registrationPage" data-theme="a">
+	<div data-role="header">
+		<h1>등록</h1>
+	</div>
+	
+	<div data-role="content">
+		<form id="register" method="post">
+			<p>	  	
+		    <label for="email">이메일주소:</label>
+		    <input type="email" name="email" id="email" value="" placeholder="Email" required />
+			</p>
+			<!-- Tip: 'required' 속성은 필드에 값이 입력 될 때까지 폼 제출을 허용하지 않는다. http://www.quirksmode.org/html5/inputs_mobile.html -->
+			<input type="submit" id="submit" value="등록" data-theme="b"/>
+	  </form>	
+	</div>			
+</div>
+
+</body>
+</html>
+

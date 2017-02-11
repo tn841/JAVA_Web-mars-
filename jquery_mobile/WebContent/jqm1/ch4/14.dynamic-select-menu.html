@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>폼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" data-theme="b">
+            <div data-role="header">
+                <h1>선택 메뉴</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="test" id="test" action="#" method="post">
+                    <a href="#" id="create-select1" data-role="button">선택메뉴1 생성</a>
+                    <a href="#" id="create-select2" data-role="button">선택메뉴2 생성</a>
+                    <br>
+
+                    <p style="text-align:center;">
+                        <strong>메서드 호출:</strong>
+                    </p>
+                    <a href="#" id="auto-select1" data-role="button" data-theme="a">선택메뉴1 갱신</a>
+                    <a href="#" id="disable-select1" data-role="button" data-theme="a">선택메뉴1 비활성화</a>
+                    <a href="#" id="enable-select1" data-role="button" data-theme="a">선택메뉴1 활성화</a>
+                    <a href="#" id="open-select1" data-role="button" data-theme="a">선택메뉴1 열기</a>
+                    <a href="#" id="close-select1" data-role="button" data-theme="a">선택메뉴1 닫기</a>
+                </form>
+            </div>
+            <script type="text/javascript">
+                $(function(){
+                  $('#create-select1').click(function(){
+                  	$("<select id='select1'>"+
+                  		"<option value=''>선택하세요.</option>"+
+                  		"<option value='action'>액션</option>"+
+                  		"<option value='drama'>드라마</option>"+
+                  		"<option value='comedy'>코메디</option>"+
+                  	+"</select>").insertAfter('#create-select1').selectmenu({
+                  		corners:true,
+                  		disable:false,
+                  		icon:'plus',
+                  		nativeMenu:false,
+                  		theme:'a',
+                  		create:function(e){
+                  			console.log('enhance select menu!');
+                  			console.log("변경전 index : "+e.target.selectedIndex);
+                  		
+              				e.target.selectedIndex=2;
+              				console.log("변경후 index : "+e.target.selectedIndex);
+              				$(e.target).selectmenu('refresh',true);
+              		
+                  			
+                  		}
+                  	});
+                  });//create-select1.click
+                   
+                  
+                  $('#auto-select1').click(function(){
+                  	console.log($('#select1')[0].selectedIndex);	//jquery객체에서 javascript표준을 호출할 수 없다.. jquery객체에 [0]을 붙여서 해결
+                  	$('#select1')[0].selectedIndex = 1;
+                  	$('#select1').selectmenu('refresh');
+					//console.log(document.getElementById("select1").selectedIndex);                  	
+                  });//auto-select1.click
+                   
+                   
+                    
+                });
+                
+                
+            </script>
+        </div>
+
+    </body>
+</html>
+

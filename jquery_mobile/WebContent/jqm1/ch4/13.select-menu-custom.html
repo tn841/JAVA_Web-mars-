@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Forms</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" data-theme="a">
+            <div data-role="header">
+                <h1>사용자 정의 선택 메뉴</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="test" id="test" action="#" method="post">
+
+                    <br>
+                    <br>
+                    <p>
+                        <label for="genre">장르:</label>
+                        <select name="genre" id="genre" data-native-menu="false" data-theme="a">
+                            <option value="null" data-placeholder="true">선택...</option>
+                            <!-- 다른 플레이스홀더 옵션:
+                            <option value="">선택...</option>
+                            <option value=""></option>
+                            -->
+                            <option value="action">액션</option>
+                            <option value="comedy">코메디</option>
+                            <option value="drama">드라마</option>
+                            <option value="romance">로맨스</option>
+                        </select>
+                    </p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p>
+                        <label for="delivery">티켓 배송:</label>
+                        <select name="delivery" id="delivery" data-native-menu="false" data-theme="a">
+                            <option value="">선택...</option>
+                            <optgroup label="디지털">
+                                <option value="barcode">e-티켓</option>
+                                <option value="nfc">NFC</option>
+                            </optgroup>
+                            <optgroup label="페덱스">
+                                <option value="overnight">야간배송</option>
+                                <option value="express">특급배송</option>
+                                <option value="ground">일반배송</option>
+                            </optgroup>
+                            <optgroup label="우체국 택배">
+                                <option value="overnight">야간배송</option>
+                                <option value="express">특급배송</option>
+                                <option value="standard">일반배송</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>
+

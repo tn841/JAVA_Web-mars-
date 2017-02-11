@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>폼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+        <style>
+            label {
+                float: left;
+                width: 7em;
+            }
+            form p {
+                clear: left;
+                margin: 10px;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" data-theme="a">
+            <div data-role="header">
+                <h1>네이티브 폼</h1>
+            </div>
+            <div data-role="content">
+                <form id="test" id="test" action="#" method="post">
+                    <p>
+                        <label for="name"> 텍스트 입력: </label>
+                        <input type="text" name="name" id="name" value="" data-role="none" />
+                    </p>
+                    <p>
+                        <label for="slider2"> 플립 스위치: </label>
+                        <select name="slider2" id="slider2" data-role="none">
+                            <option value="off">Off</option>
+                            <option value="on">On</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="slider"> 슬라이더: </label>
+                        <input type="range" name="slider" id="slider" value="0" min="0" max="100" data-role="none" />
+                    </p>
+                    <p>
+                        <label for="select-choice-1" class="select"> 선택: </label>
+                        <select name="genre" id="genre" data-native-menu="false" data-theme="a" data-role="none">
+                            <option value="null" data-placeholder="true">선택...</option>
+                            <option value="action">액션</option>
+                            <option value="comedy">코메디</option>
+                            <option value="drama">드라마</option>
+                            <option value="romance">로맨스</option>
+                        </select>
+                    </p>
+                    <p>
+                        <input type="checkbox" name="genre" id="c2" data-role="none" />
+                        <label for="c2" data-theme="c"> 체크박스: </label>
+                    </p>
+                    <p>
+                        <input type="radio" name="map" id="map1" value="Map" checked="checked" data-role="none" />
+                        <label for="c2" data-theme="c"> 라디오 버튼: </label>
+                        </fieldset>
+                    </p>
+                    <p>
+                        <label for="textarea"> Textarea: </label>
+                        <textarea cols="40" rows="5" name="textarea" id="textarea" placeholder="Native" data-role="none">
+                    </textarea>
+                    </p>
+                    <p>
+                        <button data-role="none">
+                            버튼
+                        </button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Application</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head>
+<body>
+    <section id="page1" data-role="page">
+        <header data-role="header">
+            <h1>jQuery Mobile</h1>
+        </header>
+        <div class="content" data-role="content">
+            <h3>Slider Demonstration</h3>
+            <form id="myform" action="formprocessor.php" method="post">
+                <div data-role="fieldcontain">
+                    <input value="0" type="range" id="slider" name="slider" min="0" max="500" step="50">
+                </div>
+            </form>
+        </div>
+        <footer data-role="footer"><h1>O'Reilly</h1></footer>
+    </section>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile Application</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head>
+<body>
+    <!-- Begin: Settings page -->
+    <section id="pageSettings" data-role="page">
+        <header data-role="header"><h1>jqmTweet</h1></header>
+        <div class="content" data-role="content">
+            <h3>Settings</h3>
+            <div data-role="fieldcontain">
+                <label for="username">Twitter User Name:</label>
+                <input type="text" id="username" value="">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="slider">Number of tweets to display:</label>
+                <input type="range" id="slider" name="slider" min="5" max="50" value="">
+            </div>
+        </div>
+        <footer data-role="footer"><h1>O'Reilly <i>jQuery Mobile</i></h1></footer>
+    </section>
+    <!-- End: Preferences page -->
+</body>
+</html>

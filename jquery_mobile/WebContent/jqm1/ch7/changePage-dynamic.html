@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>Dynamic Page Example</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="home" data-title="Welcome">
+	<div data-role="header">
+		<h1>Dynamic Page</h1>
+	</div>
+
+	<div data-role="content">
+		<input type=button id="changePage0" value="Open static page">	
+		<input type=button id="changePage1" value="Open dynamic page">	
+		<input type=button id="changePage2" value="Open html(jsp) page">	
+	</div>
+</div>
+
+ <div data-role="page" id="newPage2" data-title="NewPage2">
+    <div data-role="header">
+        <h1>NewPage</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+            <li>
+                피카츄
+            </li>
+            <li>
+                라이츄
+            </li>
+            <li>
+                파이리
+            </li>
+        </ul>
+        <ul><a href="#home" data-role="button">홈[#id]</a></ul>
+    </div>
+</div>
+	 
+	
+	<script>
+		$(function(){
+			$('#changePage1').on('click', function(){
+				
+				var $newPage = $("<div data-role='page' id='newPage' data-title='NewPage'>"+
+								 "<div data-role='header'><h1>Hello NewPage!!!</h1></div>"+
+								 "<div data-role='content'>NewPage Content!!!</div>"+
+								+"</div>");
+				$newPage.page({
+					closeBtn:'right',
+					dialog: true
+				});
+				
+				$($newPage).appendTo($.mobile.pageContainer);
+				
+				/*pageContainer Widget
+				 	$('body').pagecontainer();
+				 */
+				
+				$.mobile.pageContainer.pagecontainer('change','#newPage', {
+					transition:'pop',
+					changeHash:true,
+					corners: false
+					//showLoadMsg:true
+				});
+			});
+			
+			$('#changePage0').on('click', function(){
+				$('#newPage').page({
+					closeBtn:'left'
+				});
+				$.mobile.pageContainer.pagecontainer('change','#newPage2');
+			});			
+			
+			$('#changePage2').on('click', function(){
+				
+				//$('body').pagecontainer('change', '#about');
+				$('body').pagecontainer('change', '../ch2/02.about.html',{
+					transition:'pop',
+					changeHash:true
+				});
+				
+			});
+			
+			
+			
+			
+		});
+	</script>
+</div>
+
+</div>
+</body>
+</html>
+

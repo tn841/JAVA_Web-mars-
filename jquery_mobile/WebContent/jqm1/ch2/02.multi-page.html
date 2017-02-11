@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>멀티페이징</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="home">
+            <div data-role="header">
+                <h1>멀티페이지</h1>
+            </div>
+            <div data-role="content">
+                <a href="#contact-info" data-role="button">연락처[#id page]</a>
+                <a href="02.about.html" data-role="button" >어바웃[local resource(html,jsp) page]</a>
+                <a href="02.about.html" data-role="button" rel="external">어바웃[page기반요청] rel="external"</a>
+                <a href="http://m.naver.com" data-role="button" >네이버[page기반요청] 다른도메인</a>
+            </div>
+        </div>
+        <div data-role="page" id="contact-info">
+            <div data-role="header">
+                <h1>연락처</h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li>
+                        김경호:111-562-8958
+                    </li>
+                    <li>
+                        김경미:333-562-8958
+                    </li>
+                    <li>
+                        김경자:333-562-8958
+                    </li>
+                </ul>
+                <a href="#home" data-role="button">홈[#id]</a>
+            </div>
+        </div>
+
+    </body>
+</html>

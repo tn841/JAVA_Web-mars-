@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="home">
+            <div data-role="header">
+                <h1>경고예제</h1>
+            </div>
+            <div data-role="content">
+                <a href="#alert" data-role="button"
+                data-transition="slideleft">경고</a>
+            </div>
+        </div>
+        <!--경고창-->
+        <div data-role="dialog" id="alert">
+            <div data-role="header">
+                <h1>연결이 필요합니다.</h1>
+            </div>
+            <div data-role="content">
+                데이타씽크를 위해연결하세요
+                <br/>
+                <br/>
+                <a href="" data-role="button" data-rel="back">OK</a>
+            </div>
+
+        </div>
+
+    </body>
+</html>

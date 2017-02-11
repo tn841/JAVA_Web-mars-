@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>폼</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0;">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <style>
+            .ui-controlgroup-horizontal .ui-checkbox label {
+                /* 줄바꿈 문제 해결을 위해 폰트 크기 줄임 */
+                font-size: 11px !important;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page">
+            <div data-role="header">
+                <h1>체크박스</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="test" id="test" action="#" method="post">
+
+                    <fieldset data-role="controlgroup">
+                        <legend>
+                            장르:
+                        </legend>
+                        <input type="checkbox" name="genre" id="c1" />
+                        <label for="c1"data-theme="c">액션</label>
+
+                        <input type="checkbox" name="genre" id="c2" />
+                        <label for="c2" data-theme="c">코메디</label>
+
+                        <input type="checkbox" name="genre" id="c3" />
+                        <label for="c3" data-theme="c">드라마</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>
+                            장르:
+                        </legend>
+                        <input type="checkbox" name="genre" id="c4" />
+                        <label for="c4" data-theme="b">액션</label>
+
+                        <input type="checkbox" name="genre" id="c5" />
+                        <label for="c5" data-theme="b">코메디</label>
+
+                        <input type="checkbox" name="genre" id="c6" />
+                        <label for="c6" data-theme="b">드라마</label>
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>
+
