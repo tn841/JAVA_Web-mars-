@@ -1,0 +1,11 @@
+<!-- 오른쪽에 메시지 출력 -->
+<style type="text/css">
+	input.error, textarea.error{ border:1px dashed #C00000; }
+	label.error{ margin-left:10px; color:#C0000; }
+</style>
+<!-- 아랫쪽에 메시지 출력 -->
+<style type="text/css"> 
+	input.error, textarea.error{ border:1px dashed red; } 
+	label.error{ display:block; color:red; } 
+</style> 
+
