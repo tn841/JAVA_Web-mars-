@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../js/jquery-1.12.4.js"></script>
+<title>jQuery 소개</title>
+<style>
+.title{
+	border: 2px solid red;
+	background-color: gold;
+}
+.highlight1{
+	background-color: #aaa;
+}
+.highlight2{
+	background-color: #ccc;
+}
+
+.highlight3{
+	border: 2px solid blue;
+}
+</style>
+<script>
+	$(function(){
+		// 1. 태그 선택자
+		$('h2').addClass('highlight1');
+		
+		// 2. 필터 선택자
+		$('div:odd').addClass('highlight2');
+		$('div:even').css('background-color','#eee');
+		
+		// 3. DOM순회
+		var $jQueryNodes = $('#root').children();
+		console.log('1. $jQueryNodes.length : '+$jQueryNodes.length);
+		var text1 = '';
+		var text2 = '';
+		$($jQueryNodes).each(function(index, element) {	//element는 DOM의 표준 객체이다.
+			//console.log($jQueryNodes[index]);
+			//console.log(element);
+			text1 += $(element).text()+", ";
+		});
+		console.log(text1);
+		
+		var bodyText = $('body').text();
+		console.log(bodyText);
+		
+		var totalHtml = $('body').parent().html();
+		console.log(totalHtml);
+		
+		// 4. DOM Node변경
+		$('h3').text('Example-->h3 text 변경');
+		$('h3').html('<u>under line html변경</u>');
+		
+		
+		// 5. Event
+		$('#send').click(function(e) {
+			console.log("click! : "+$(e.target).text());
+		});
+		
+		$('#send');		
+	});
+</script>
+
+</head>
+<body style="font-size: 15pt">
+	<h2>1. jQuery("선택자") 메소드를 이용하여 HTML DOM의 노드(엘리먼트) 선택하여 조작하기.</h2>
+	<p>jQuery("선택자")메소드는 DOM Element를 찾아 Wrapper(jQuery) 객체를 반환한다.</p>
+	<p>jQuery("html 태그")메소드로 동적 DOM을 생성할 수 있다.</p>
+	
+	<h2>2. jQuery가 지원하는 필터 선택자를 Element 필터링하기</h2>
+	<div>jQuery</div>
+	<div>Prototype</div>
+	<div>Dojo</div>
+	
+	<h2>3. jQuery가 제공하는 메소드를 이용하여 DOM의 노드 갯수 세고 노드안의 텍스트 표시하기</h2>
+	<div id="root">
+		<div>Darjeeling</div>
+		<div>Assam</div>
+		<div>Kerala</div>
+	</div>
+	
+	<h2>4. DOM 노드의 내용을 동적으로 변경하기</h2>
+	<h3>Example</h3>
+	
+	<h2>5. jQuery로 이벤트 처리</h2>
+	<button id="send">전송</button>
+		
+
+	<script type="text/javascript">
+	
+	</script>
+</body>
+</html>

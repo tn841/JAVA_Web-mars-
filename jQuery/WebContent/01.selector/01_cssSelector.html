@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>CSS 선택자를 이용한 HTML DOM Element 검색</title>
+		<script src="../js/jquery-1.12.4.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+				$('div').css('border','4px solid rgb(0,0,123)');
+				$('div').css('background-color','#FFFF00');
+				console.log($('div').css('border'));
+				console.log($('div').css('background-color'));
+				
+				
+			});
+			
+			function toogleColor(){
+				$('div').css('background-color',function(index, value){
+					console.log('index:'+index+" value:"+value);
+					if(value === 'rgb(255, 255, 0)'){
+						console.log('현재 배경색은 노랑입니다. 파랑으로 변경 하겠음.');
+						return 'rgb(0, 0, 255)';
+					}else{
+						console.log('배경색을 노랑으로 바꿉니다.');
+						console.log();
+						return 'rgb('+Math.round(Math.random()*255)+', '+Math.round(Math.random()*255)+', '+Math.round(Math.random()*255)+')';
+					}
+				});
+			}
+		</script>
+	</head>
+	<body style="font-size: 15pt">
+		<div>
+			CSS 선택자를 이용한 HTML Element 검색
+		</div>
+		
+		<button onclick="toogleColor()">색 변경</button>
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>객체 확장</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(function() {
+	var obj1={
+		id:'guard',
+		name:'KIM'
+	};
+	var obj2={
+		address:'경기도민',
+		gender:'MALE'
+	};
+	
+	$.extend(obj1, obj2);	
+	
+	$.each(obj1, function(key, val) {
+		console.log(key+" : "+val);
+		document.write(key+" : "+val);
+	});
+});
+</script>
+</head>
+<body style="padding: 10px;">
+	<h2>객체 확장</h2>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery에서 제공하는 Event 핸들링 메소드</title>
+<style>
+div,pre {
+	background: #FFF;
+	padding: 10px;
+	margin: 10px;
+}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(function() {
+	/*
+	 * 최초이벤트발생이후에 핸들러제거됨
+	 */
+	$('li').one('click',function(){
+		console.log('one 으로 1회성 이벤트핸들러 등록');
+	});
+	
+	$('#on').click(function(){
+		$('li').on('click', function(){
+			console.log('on으로 이벤트 등록');
+		});
+	});
+	$('#off').click(function(){
+		$('li').off('click');
+	});
+});
+</script>
+</head>
+
+<body style="padding: 10px;">
+	<h2>jQuery에서 제공하는 Event 핸들링 메소드</h2>
+	<div>
+		<ul>
+			<li>list item 1</li>
+			<li>list item 2</li>
+			<li>list item 3</li>
+			<li>list item 4</li>
+			<li>list item 5</li>
+		</ul>
+	</div>
+	<button id="on" value="on">on</button>
+	<button id="off" value="off">off</button>
+</body>
+</html>

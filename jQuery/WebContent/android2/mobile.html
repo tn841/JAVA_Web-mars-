@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jonathan Stark</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no width=device-width" />
+<link rel="stylesheet" href='mobile.css' type="text/css" media="screen"/>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" >
+	var startUrl = 'menu_index.html';
+	var hist = [];
+	$(document).ready(function(){
+		// menu 구성
+		loadPageMenuIndex(startUrl);
+	});
+	
+	function loadPageMenuIndex(url){
+		//progress dialog생성
+		$('body').append("<div id='progress'>loading..</div>");
+		
+		
+		$('#container').load(url+' #header ul', function(){
+			
+			//제목
+			var title='Index';
+			$('h1').html(title);
+			$('.leftButton').remove();
+			hist.unshift({url:url, title:title});	//배열의 맨 앞에 push
+			 
+			//메뉴 이벤트
+			$('#container a').click(function(e){
+				//console.log(e.target.href);
+				if($(e.target).attr('href').startsWith('http')){
+					
+				}else{
+					loadPage($(e.target).attr('href'));
+					e.preventDefault();
+				}
+				console.log(hist);
+			});
+			
+			$('#progress').remove();		
+		});	
+	}
+	
+	function loadPage(url){
+		console.log(url);
+		$('#header').append("<div id=progress>Loading</div>");
+		$('#container').load(url+' #content', function(){
+			var title = $('h2').html();
+			
+			hist.unshift({url:url, title:title});
+			$('.leftButton').remove();
+			//history가 존재한다면
+			if(hist.length>1){
+				$('#header').append("<div class='leftButton'> &nbsp;&nbsp;&lt;&nbsp;&nbsp; <div>");
+				$('.leftButton').click(function(){
+					var thisPage = hist.shift();
+					var previousPage = hist.shift();
+					loadPageMenuIndex(previousPage.url);
+					
+				});
+			}
+			
+			$('#header h1').html(title);
+			$('#progress').remove();
+		});
+	}
+</script>
+</head>
+<body>
+<div id="header">
+	<h1>Jonathan Stark</h1>
+</div>
+<div id="container">
+</div>
+</body>
+</html>

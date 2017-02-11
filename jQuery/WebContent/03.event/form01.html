@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery에서 제공하는 Form 제어 메소드</title>
+<style>
+div,pre {
+	background: #FFF;
+	padding: 10px;
+	margin: 10px;
+}
+
+table {
+	border: 1px solid #AAA;
+}
+
+td {
+	border: 1px solid #AAA;
+	width: 25px;
+	height: 25px;
+}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#f').submit(
+			function(e){
+				/*
+				 * ajax요청
+				 */
+				/*
+				 * 1.parameter생성[id=xxx&name=kim]
+				 */
+				//alert('form.serialize():'+$('#f').serialize());
+				
+				var jsonArray = $('#f').serializeArray();
+				/*
+				 * [
+				 * 	{id:'xxx'},
+				 *  {name:kim}
+				 * ]
+				 * 
+				 */
+				alert('jQuery.param():'+jQuery.param(jsonArray));
+				var paramStr = jQuery.param(jsonArray);
+				/*
+				 * 2.ajax요청[GET]
+				 */
+				 var url=$('#f').attr('action');
+				 $.get(
+				 	url,
+				 	paramStr,
+				 	function(data){
+				 		alert('ajax response success!!!-->'+data);
+				 	},
+				 	'text'
+				 );
+			
+				
+				e.preventDefault();
+			}
+		);
+		
+	});	
+</script>
+</head>
+
+<body style="padding: 10px;">
+	<h2>jQuery에서 제공하는 Form 제어 메소드</h2>
+	<div>
+		<form id="f" action="xxx.jsp">
+			  아이디:<input type="text" name="id" id="id" /><br /> 
+			  이 름: <input type="text"	name="name" /><br /> 
+			  별명: hidden <input type="hidden" name="alias" value="제임스" /><br />
+					<select name="job">
+						<option value="1" selected="selected">job1</option>
+						<option value="2">job2</option>
+						<option value="3">job3</option>
+					</select> <br /> 
+					<input type="submit" value="전송" />
+		</form>
+	</div>
+</body>
+</html>

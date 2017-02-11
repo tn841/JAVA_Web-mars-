@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS 선택자를 이용한 HTML DOM Element 검색</title>
+<script src="../js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(function(){
+		console.log($('#title').html());
+		window.setTimeout(function(){
+			$('#title').html('변경');	
+			$('.contents').html('편리하고 유용한 jQuery');
+			$('h2').css('background-color','gold');
+		},2000);
+		
+	});
+</script>
+</head>
+<body style="font-size: 15pt">
+	<h2>CSS 선택자를 이용한 HTML Element 검색</h2>
+	<div id="title" style="border: 2px solid red;">Hello jQuery~~</div>
+	<p class="contents">&nbsp;</p>
+</body>
+</html>

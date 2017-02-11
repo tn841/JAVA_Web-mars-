@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>배열 처리 메소드 활용</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	var memberNameArray=["KIM","SIM","HONG","BING","CHOI","PARK"];
+	
+	/*
+	 * .grep()
+	 *  조건에 맞는 요소만 필터링
+	 */
+	$(function(){
+		var resultArr = $.grep(memberNameArray, function(e, i){
+			return e.length == 3;
+		}, true);
+		
+		console.log(resultArr);
+		
+		$('.selected').html(resultArr.join(", "));	
+	});
+	
+
+</script>
+</head>
+<body style="padding: 10px;">
+	<h2>Members of my Group are</h2>
+	<p class="selected"></p>
+</body>
+</html>
